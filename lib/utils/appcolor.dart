@@ -8,4 +8,6 @@ class AppColor {
   static Color iconblck = const Color(0XFF3B3B3B);
   static Color conblck = const Color(0XFF3C3C3C);
   static Color maintxt = const Color(0XFF1A1D1F);
+  static Color txt = const Color(0XFF1E1E1E);
+  static Color black = const Color(0XFF000000);
 }
