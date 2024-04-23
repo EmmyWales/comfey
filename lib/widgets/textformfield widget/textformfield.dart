@@ -7,6 +7,7 @@ class CustomTextFormField extends StatefulWidget {
   final String? hintText;
   final double? fontSize;
   final Color? textColor;
+  final Color? hintColor;
   final Color? borderColor;
   final double borderRadius;
   final void Function(String?)? onChanged;
@@ -25,6 +26,7 @@ final TextInputType? keyboardType;
       this.keyboardType,
       this.fontSize,
       this.textColor,
+      this.hintColor,
       this.borderColor,
       this.onChanged,
       this.borderRadius = 10.0,
@@ -49,6 +51,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       child: Padding(
         padding: const EdgeInsets.only(left: 10.0),
         child: TextField(
+          maxLines: 1,
           controller: widget.controller,
           keyboardType: widget.keyboardType,
           obscureText: _obscure,
@@ -58,7 +61,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           decoration: InputDecoration(
               hintText: widget.hintText,
               hintStyle: GoogleFonts.poppins(
-                color: AppColor.primary,
+                color: widget.hintColor ?? AppColor.primary ,
                 fontSize: 18,
               ),
               border: InputBorder.none,
@@ -83,3 +86,4 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     );
   }
 }
+

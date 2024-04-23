@@ -1,4 +1,6 @@
 import 'package:comfey/utils/appcolor.dart';
+import 'package:comfey/view/profile/old_payment.dart';
+import 'package:comfey/view/profile/payment.dart';
 import 'package:comfey/view/profile/settings.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
 import 'package:flutter/cupertino.dart';
@@ -140,40 +142,60 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       ),
                     ),
-                    ListTile(
-                      leading: Icon(
-                        Icons.credit_card,
-                        color: AppColor.black,
-                        size: 28,
-                      ),
-                      title: const BaseText(
-                        text: "Payment method",
-                        fontSize: 18,
-                        color: Color(
-                          0XFF1A1A1A,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const PaymentScreen(),
+                          ),
+                        );
+                      },
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.credit_card,
+                          color: AppColor.black,
+                          size: 28,
                         ),
-                      ),
-                      trailing: Icon(
-                        Icons.arrow_forward_ios_outlined,
-                        size: 22,
+                        title: const BaseText(
+                          text: "Payment method",
+                          fontSize: 18,
+                          color: Color(
+                            0XFF1A1A1A,
+                          ),
+                        ),
+                        trailing: const Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          size: 22,
+                        ),
                       ),
                     ),
-                    ListTile(
-                      leading: Icon(
-                        Icons.account_box_rounded,
-                        color: AppColor.black,
-                        size: 28,
-                      ),
-                      title: const BaseText(
-                        text: "Old payment documents",
-                        fontSize: 18,
-                        color: Color(
-                          0XFF1A1A1A,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const OldPaymentDocument(),
+                          ),
+                        );
+                      },
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.account_box_rounded,
+                          color: AppColor.black,
+                          size: 28,
                         ),
-                      ),
-                      trailing: Icon(
-                        Icons.arrow_forward_ios_outlined,
-                        size: 22,
+                        title: const BaseText(
+                          text: "Old payment documents",
+                          fontSize: 18,
+                          color: Color(
+                            0XFF1A1A1A,
+                          ),
+                        ),
+                        trailing: Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          size: 22,
+                        ),
                       ),
                     ),
                   ],
