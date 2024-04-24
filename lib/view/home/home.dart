@@ -1,6 +1,7 @@
 import 'package:comfey/model/homemodel.dart';
 import 'package:comfey/utils/appcolor.dart';
 import 'package:comfey/view/home/map.dart';
+import 'package:comfey/view/product_view/product_view.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
 import 'package:comfey/widgets/textformfield%20widget/textformfield.dart';
 import 'package:flutter/cupertino.dart';
@@ -218,164 +219,176 @@ class _HomeScreenState extends State<HomeScreen> {
                           itemCount: accomodation.length,
                           itemBuilder: ((context, index) {
                             final accomodations = accomodation[index];
-                            return Container(
-                              margin: EdgeInsets.only(right: 10),
-                              height: 340,
-                              width: 250,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(color: Colors.grey),
-                              ),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    height: 200,
-                                    width: 250,
-                                    decoration: BoxDecoration(
-                                      borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(15),
-                                          topRight: Radius.circular(15)),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            "assets/${accomodations.imagePaths}.png"),
-                                        fit: BoxFit.fill,
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => const ProductView(),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                margin: EdgeInsets.only(right: 10),
+                                height: 340,
+                                width: 250,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  border: Border.all(color: Colors.grey),
+                                ),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 200,
+                                      width: 250,
+                                      decoration: BoxDecoration(
+                                        borderRadius: const BorderRadius.only(
+                                            topLeft: Radius.circular(15),
+                                            topRight: Radius.circular(15)),
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              "assets/${accomodations.imagePaths}.png"),
+                                          fit: BoxFit.fill,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(10.0),
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            BaseText(
-                                              text: accomodations.name,
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.w600,
-                                              color: AppColor.conblck,
-                                            ),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Container(
-                                                  height: 18,
-                                                  width: 65,
-                                                  decoration: BoxDecoration(
-                                                    color:
-                                                        const Color(0XFFD28E50),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            5),
-                                                  ),
-                                                  child: const Center(
-                                                    child: BaseText(
-                                                      text: "Classic",
-                                                      fontSize: 12,
-                                                      color: Color(0XFF5A3514),
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              BaseText(
+                                                text: accomodations.name,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.w600,
+                                                color: AppColor.conblck,
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Container(
+                                                    height: 18,
+                                                    width: 65,
+                                                    decoration: BoxDecoration(
+                                                      color: const Color(
+                                                          0XFFD28E50),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              5),
+                                                    ),
+                                                    child: const Center(
+                                                      child: BaseText(
+                                                        text: "Classic",
+                                                        fontSize: 12,
+                                                        color:
+                                                            Color(0XFF5A3514),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                                const SizedBox(width: 4),
-                                                Container(
-                                                  height: 18,
-                                                  width: 65,
-                                                  decoration: BoxDecoration(
-                                                    color:
-                                                        const Color(0XFFD28E50),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            5),
-                                                  ),
-                                                  child: const Center(
-                                                    child: BaseText(
-                                                      text: "Available",
-                                                      fontSize: 12,
-                                                      color: Color(0XFF5A3514),
+                                                  const SizedBox(width: 4),
+                                                  Container(
+                                                    height: 18,
+                                                    width: 65,
+                                                    decoration: BoxDecoration(
+                                                      color: const Color(
+                                                          0XFFD28E50),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              5),
+                                                    ),
+                                                    child: const Center(
+                                                      child: BaseText(
+                                                        text: "Available",
+                                                        fontSize: 12,
+                                                        color:
+                                                            Color(0XFF5A3514),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                        const SizedBox(
-                                          height: 5,
-                                        ),
-                                        Row(
-                                          children: [
-                                            const Icon(
-                                              Icons.location_on_outlined,
-                                              size: 16,
-                                            ),
-                                            BaseText(
-                                                text: accomodations.location,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w400,
-                                                color: Colors.black),
-                                          ],
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        const Row(
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Icon(
-                                                  Icons.star,
-                                                  color: Color(0XFFFFE500),
-                                                  size: 16,
-                                                ),
-                                                Icon(
-                                                  Icons.star,
-                                                  color: Color(0XFFFFE500),
-                                                  size: 16,
-                                                ),
-                                                Icon(
-                                                  Icons.star,
-                                                  color: Color(0XFFFFE500),
-                                                  size: 16,
-                                                ),
-                                                Icon(
-                                                  Icons.star,
-                                                  color: Color(0XFFFFE500),
-                                                  size: 16,
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(
-                                              width: 10,
-                                            ),
-                                            BaseText(
-                                              text: "4.3 Rating",
-                                              fontSize: 13,
-                                              color: Colors.black,
-                                            ),
-                                          ],
-                                        ),
-                                        Divider(),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            BaseText(
-                                              text:
-                                                  "\$ ${accomodations.price.toString()}",
-                                              fontSize: 14,
-                                              color: Color(0XFF1F1E1E),
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                            Icon(Icons.bookmark)
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  )
-                                ],
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                          const SizedBox(
+                                            height: 5,
+                                          ),
+                                          Row(
+                                            children: [
+                                              const Icon(
+                                                Icons.location_on_outlined,
+                                                size: 16,
+                                              ),
+                                              BaseText(
+                                                  text: accomodations.location,
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w400,
+                                                  color: Colors.black),
+                                            ],
+                                          ),
+                                          const SizedBox(
+                                            height: 10,
+                                          ),
+                                          const Row(
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Icon(
+                                                    Icons.star,
+                                                    color: Color(0XFFFFE500),
+                                                    size: 16,
+                                                  ),
+                                                  Icon(
+                                                    Icons.star,
+                                                    color: Color(0XFFFFE500),
+                                                    size: 16,
+                                                  ),
+                                                  Icon(
+                                                    Icons.star,
+                                                    color: Color(0XFFFFE500),
+                                                    size: 16,
+                                                  ),
+                                                  Icon(
+                                                    Icons.star,
+                                                    color: Color(0XFFFFE500),
+                                                    size: 16,
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              BaseText(
+                                                text: "4.3 Rating",
+                                                fontSize: 13,
+                                                color: Colors.black,
+                                              ),
+                                            ],
+                                          ),
+                                          Divider(),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              BaseText(
+                                                text:
+                                                    "\$ ${accomodations.price.toString()}",
+                                                fontSize: 14,
+                                                color: Color(0XFF1F1E1E),
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                              Icon(Icons.bookmark)
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                             );
                           })),

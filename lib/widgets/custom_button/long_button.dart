@@ -6,6 +6,9 @@ import 'package:google_fonts/google_fonts.dart';
 class LongButton extends StatelessWidget {
   final String text;
   static const double buttonWidth = 360.0;
+  final Color? textColor;
+  final double? fontSize;
+  final Color? bgColor;
   final VoidCallback onPressed;
   final BorderSide? borderSide;
   final Color? primary;
@@ -13,7 +16,10 @@ class LongButton extends StatelessWidget {
 
   LongButton({
     required this.text,
+    this.fontSize,
     this.child,
+    this.bgColor,
+    this.textColor,
     this.borderSide,
     required this.onPressed,
     this.primary,
@@ -30,13 +36,13 @@ class LongButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.0),
           ),
-          backgroundColor: AppColor.primary,
+          backgroundColor: bgColor ?? AppColor.primary,
           minimumSize: const Size(buttonWidth, 55),
         ),
         child: BaseText(
           text: text,
-          fontSize: 18,
-          color: AppColor.white,
+          fontSize: fontSize ?? 18,
+          color: textColor ?? AppColor.white,
           fontWeight: FontWeight.w600,
         ),
       ),

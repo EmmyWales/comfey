@@ -193,5 +193,6 @@ class ContractDialogue extends StatelessWidget {
         ),
       ),
     );
+  
   }
 }
