@@ -14,12 +14,12 @@ class MakePayment extends StatelessWidget {
     return DefaultTabController(
       length: 1,
       child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            children: [
-              const SizedBox(height: 50),
-              Row(
+        body: Column(
+          children: [
+            const SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Row(
                 children: [
                   GestureDetector(
                     onTap: () {
@@ -66,26 +66,26 @@ class MakePayment extends StatelessWidget {
                   ),
                 ],
               ),
-              TabBar(
-                labelStyle: GoogleFonts.poppins(
-                    color: const Color(0XFF483C32),
-                    fontWeight: FontWeight.w400,
-                    fontSize: 18),
-                tabs: const [
-                  Tab(
-                    text: "Checkout",
-                  ),
+            ),
+            TabBar(
+              labelStyle: GoogleFonts.poppins(
+                  color: const Color(0XFF483C32),
+                  fontWeight: FontWeight.w400,
+                  fontSize: 18),
+              tabs: const [
+                Tab(
+                  text: "Checkout",
+                ),
+              ],
+            ),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  CheckoutScreen(),
                 ],
               ),
-              Expanded(
-                child: TabBarView(
-                  children: [
-                    CheckoutScreen(),
-                  ],
-                ),
-              )
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );

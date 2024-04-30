@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
           physics: const NeverScrollableScrollPhysics(),
           child: Center(
             child: Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -66,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                   CustomTextFormField(
                     // controller: _pword,
                     hintText: "Password",
-                    keyboardType: TextInputType.visiblePassword,
+                    //keyboardType: TextInputType.visiblePassword,
                     suffixIcon: IconButton(
                       onPressed: _toggleVisibility,
                       icon: Icon(
@@ -184,6 +184,5 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
-  
   }
 }

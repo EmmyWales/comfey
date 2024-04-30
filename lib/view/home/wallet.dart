@@ -37,7 +37,7 @@ class _WalletScreenState extends State<WalletScreen> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
                 const SizedBox(
@@ -118,6 +118,7 @@ class _WalletScreenState extends State<WalletScreen> {
                       ],
                     ),
                     Column(
+                      //crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
                           height: 45,
@@ -265,14 +266,18 @@ class _WalletScreenState extends State<WalletScreen> {
                   ],
                 ),
                 Container(
-                  height: MediaQuery.sizeOf(context).height / 4.09,
+                  height: MediaQuery.sizeOf(context).height / 4,
                   child: ListView.builder(
                     scrollDirection: Axis.vertical,
+                    padding:
+                        EdgeInsets.only(top: transaction.isNotEmpty ? 1 : 0),
                     physics: const ClampingScrollPhysics(),
                     itemCount: transaction.length,
                     itemBuilder: ((context, index) {
                       final transactions = transaction[index];
                       return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           ListTile(
                             leading: Image.asset("assets/home.png"),

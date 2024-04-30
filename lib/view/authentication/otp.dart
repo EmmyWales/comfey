@@ -1,7 +1,6 @@
 import 'package:comfey/utils/appcolor.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
 import 'package:comfey/widgets/custom_button/long_button.dart';
-import 'package:comfey/widgets/textformfield%20widget/textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
@@ -33,11 +32,21 @@ class _OTPState extends State<OTP> {
                   const SizedBox(
                     height: 20,
                   ),
-                  BaseText(
-                    text: "OTP",
-                    fontSize: 26,
-                    color: AppColor.txtblack,
-                    fontWeight: FontWeight.w600,
+                  Row(
+                    children: [
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Icon(Icons.arrow_back_ios),),
+                           SizedBox(width: MediaQuery.sizeOf(context).width/3,),
+                      BaseText(
+                        text: "OTP",
+                        fontSize: 26,
+                        color: AppColor.txtblack,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 10),
                   const BaseText(
@@ -103,6 +112,5 @@ class _OTPState extends State<OTP> {
         ),
       ),
     );
-  
   }
 }

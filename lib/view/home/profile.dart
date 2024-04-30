@@ -20,7 +20,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -35,102 +35,192 @@ class _ProfileScreenState extends State<ProfileScreen> {
               const SizedBox(
                 height: 30,
               ),
-              Container(
-                height: 90,
-                width: MediaQuery.sizeOf(context).width,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.2),
-                      spreadRadius: 2,
-                      blurRadius: 1,
-                      offset: Offset(0, 0),
-                    ),
-                  ],
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 65,
-                            width: 65,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/profile.png",
+              Material(
+                elevation: 1,
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  height: 90,
+                  width: MediaQuery.sizeOf(context).width,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 65,
+                              width: 65,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                    "assets/profile.png",
+                                  ),
+                                  fit: BoxFit.fill,
                                 ),
-                                fit: BoxFit.fill,
                               ),
-                            ),
-                          )
+                            )
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          BaseText(
+                            text: "Jackson. O",
+                            fontSize: 18,
+                            color: AppColor.txt,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          BaseText(
+                            text: "jackson820@gmail.com",
+                            fontSize: 14,
+                            color: AppColor.primary,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          const BaseText(
+                            text: "+234 9062628282",
+                            fontSize: 14,
+                            color: Color(0XFF949494),
+                            fontWeight: FontWeight.w500,
+                          ),
                         ],
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        BaseText(
-                          text: "Jackson. O",
-                          fontSize: 18,
-                          color: AppColor.txt,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        BaseText(
-                          text: "jackson820@gmail.com",
-                          fontSize: 14,
-                          color: AppColor.primary,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        const BaseText(
-                          text: "+234 9062628282",
-                          fontSize: 14,
-                          color: Color(0XFF949494),
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ],
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(
                 height: 30,
               ),
-              Container(
-                height: 200,
-                width: MediaQuery.sizeOf(context).width,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Column(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const SettingsScreen(),
+              Material(
+                elevation: 1,
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  height: 200,
+                  width: MediaQuery.sizeOf(context).width,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Column(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const SettingsScreen(),
+                            ),
+                          );
+                        },
+                        child: ListTile(
+                          leading: Icon(
+                            Icons.person,
+                            color: AppColor.black,
+                            size: 28,
                           ),
-                        );
-                      },
-                      child: ListTile(
+                          title: const BaseText(
+                            text: "Account Information",
+                            fontSize: 18,
+                            color: Color(
+                              0XFF1A1A1A,
+                            ),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios_outlined,
+                            size: 22,
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const PaymentScreen(),
+                            ),
+                          );
+                        },
+                        child: ListTile(
+                          leading: Icon(
+                            Icons.credit_card,
+                            color: AppColor.black,
+                            size: 28,
+                          ),
+                          title: const BaseText(
+                            text: "Payment method",
+                            fontSize: 18,
+                            color: Color(
+                              0XFF1A1A1A,
+                            ),
+                          ),
+                          trailing: const Icon(
+                            Icons.arrow_forward_ios_outlined,
+                            size: 22,
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const OldPaymentDocument(),
+                            ),
+                          );
+                        },
+                        child: ListTile(
+                          leading: Icon(
+                            Icons.account_box_rounded,
+                            color: AppColor.black,
+                            size: 28,
+                          ),
+                          title: const BaseText(
+                            text: "Old payment documents",
+                            fontSize: 18,
+                            color: Color(
+                              0XFF1A1A1A,
+                            ),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios_outlined,
+                            size: 22,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Material(
+                elevation: 1,
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  height: 200,
+                  width: MediaQuery.sizeOf(context).width,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Column(
+                    children: [
+                      ListTile(
                         leading: Icon(
-                          Icons.person,
+                          Icons.translate,
                           color: AppColor.black,
                           size: 28,
                         ),
                         title: const BaseText(
-                          text: "Account Information",
+                          text: "Language and Region",
                           fontSize: 18,
                           color: Color(
                             0XFF1A1A1A,
@@ -141,52 +231,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           size: 22,
                         ),
                       ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const PaymentScreen(),
-                          ),
-                        );
-                      },
-                      child: ListTile(
+                      ListTile(
                         leading: Icon(
-                          Icons.credit_card,
+                          Icons.location_on,
                           color: AppColor.black,
                           size: 28,
                         ),
                         title: const BaseText(
-                          text: "Payment method",
-                          fontSize: 18,
-                          color: Color(
-                            0XFF1A1A1A,
-                          ),
-                        ),
-                        trailing: const Icon(
-                          Icons.arrow_forward_ios_outlined,
-                          size: 22,
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const OldPaymentDocument(),
-                          ),
-                        );
-                      },
-                      child: ListTile(
-                        leading: Icon(
-                          Icons.account_box_rounded,
-                          color: AppColor.black,
-                          size: 28,
-                        ),
-                        title: const BaseText(
-                          text: "Old payment documents",
+                          text: "Location",
                           fontSize: 18,
                           color: Color(
                             0XFF1A1A1A,
@@ -197,77 +249,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           size: 22,
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Container(
-                height: 200,
-                width: MediaQuery.sizeOf(context).width,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Column(
-                  children: [
-                    ListTile(
-                      leading: Icon(
-                        Icons.translate,
-                        color: AppColor.black,
-                        size: 28,
-                      ),
-                      title: const BaseText(
-                        text: "Language and Region",
-                        fontSize: 18,
-                        color: Color(
-                          0XFF1A1A1A,
+                      ListTile(
+                        leading: Icon(
+                          Icons.lock,
+                          color: AppColor.black,
+                          size: 28,
+                        ),
+                        title: const BaseText(
+                          text: " Privacy and security",
+                          fontSize: 18,
+                          color: Color(
+                            0XFF1A1A1A,
+                          ),
+                        ),
+                        trailing: Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          size: 22,
                         ),
                       ),
-                      trailing: Icon(
-                        Icons.arrow_forward_ios_outlined,
-                        size: 22,
-                      ),
-                    ),
-                    ListTile(
-                      leading: Icon(
-                        Icons.location_on,
-                        color: AppColor.black,
-                        size: 28,
-                      ),
-                      title: const BaseText(
-                        text: "Location",
-                        fontSize: 18,
-                        color: Color(
-                          0XFF1A1A1A,
-                        ),
-                      ),
-                      trailing: Icon(
-                        Icons.arrow_forward_ios_outlined,
-                        size: 22,
-                      ),
-                    ),
-                    ListTile(
-                      leading: Icon(
-                        Icons.lock,
-                        color: AppColor.black,
-                        size: 28,
-                      ),
-                      title: const BaseText(
-                        text: " Privacy and security",
-                        fontSize: 18,
-                        color: Color(
-                          0XFF1A1A1A,
-                        ),
-                      ),
-                      trailing: Icon(
-                        Icons.arrow_forward_ios_outlined,
-                        size: 22,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(

@@ -15,7 +15,7 @@ class CustomTextFormField extends StatefulWidget {
   final double? width;
   final Widget? suffixIcon;
   final Widget? preffixIcon;
-final TextInputType? keyboardType;
+  final TextInputType? keyboardType;
 
   const CustomTextFormField(
       {this.height,
@@ -61,7 +61,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           decoration: InputDecoration(
               hintText: widget.hintText,
               hintStyle: GoogleFonts.poppins(
-                color: widget.hintColor ?? AppColor.primary ,
+                color: widget.hintColor ?? AppColor.primary,
                 fontSize: 18,
               ),
               border: InputBorder.none,
@@ -86,4 +86,3 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     );
   }
 }
-

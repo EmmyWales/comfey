@@ -36,7 +36,7 @@ class _OldPaymentDocumentState extends State<OldPaymentDocument> {
         automaticallyImplyLeading: true,
       ),
       body: Padding(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

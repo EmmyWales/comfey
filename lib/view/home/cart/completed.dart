@@ -16,7 +16,7 @@ class _CompletedState extends State<Completed> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
             const SizedBox(
@@ -93,7 +93,7 @@ class _CompletedState extends State<Completed> {
                           ),
                         ),
                         const SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
                       ],
                     );

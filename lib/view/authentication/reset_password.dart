@@ -1,14 +1,10 @@
 import 'package:comfey/view/authentication/otp.dart';
-import 'package:comfey/view/authentication/signup.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
 import 'package:comfey/widgets/custom_button/long_button.dart';
-import 'package:comfey/widgets/logo/logo.dart';
 import 'package:comfey/widgets/textformfield%20widget/textformfield.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
 import '../../utils/appcolor.dart';
-import '../../widgets/logo/social.dart';
+
 
 class ResetPassword extends StatefulWidget {
   const ResetPassword({super.key});
@@ -44,11 +40,23 @@ class _ResetPasswordState extends State<ResetPassword> {
                   const SizedBox(
                     height: 20,
                   ),
-                  BaseText(
-                    text: "Reset Password",
-                    fontSize: 26,
-                    color: AppColor.txtblack,
-                    fontWeight: FontWeight.w600,
+                  Row(
+                    children: [
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Icon(Icons.arrow_back_ios)),
+                      SizedBox(
+                        width: MediaQuery.sizeOf(context).width / 5,
+                      ),
+                      BaseText(
+                        text: "Reset Password",
+                        fontSize: 26,
+                        color: AppColor.txtblack,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 30,
@@ -64,8 +72,12 @@ class _ResetPasswordState extends State<ResetPassword> {
                   LongButton(
                       text: "Reset Password",
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (_) => const OTP(),),);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const OTP(),
+                          ),
+                        );
                       }),
                   const SizedBox(
                     height: 50,
@@ -77,6 +89,5 @@ class _ResetPasswordState extends State<ResetPassword> {
         ),
       ),
     );
-  
   }
 }

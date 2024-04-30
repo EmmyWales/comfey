@@ -1,4 +1,5 @@
 import 'package:comfey/view/authentication/login.dart';
+import 'package:comfey/view/home/home.dart';
 import 'package:comfey/widgets/custom_button/long_button.dart';
 import 'package:comfey/widgets/logo/logo.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,7 @@ class _SignUpPageState extends State<SignUpPage> {
           physics: const NeverScrollableScrollPhysics(),
           child: Center(
             child: Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -73,6 +74,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   CustomTextFormField(
                     // controller: _pword,
                     hintText: "Password",
+                    
                     keyboardType: TextInputType.visiblePassword,
                     suffixIcon: IconButton(
                       onPressed: _toggleVisibility,
@@ -85,7 +87,16 @@ class _SignUpPageState extends State<SignUpPage> {
                   const SizedBox(
                     height: 50,
                   ),
-                  LongButton(text: "Sign up", onPressed: () {}),
+                  LongButton(
+                      text: "Sign up",
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const HomeScreen(),
+                          ),
+                        );
+                      }),
                   const SizedBox(
                     height: 30,
                   ),

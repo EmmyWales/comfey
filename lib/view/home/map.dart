@@ -14,21 +14,21 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        height: MediaQuery.sizeOf(context).height,
-        width: MediaQuery.sizeOf(context).width,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/map.png"), fit: BoxFit.fill),
-        ),
+    return Container(
+      height: MediaQuery.sizeOf(context).height/3,
+      width: MediaQuery.sizeOf(context).width,
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage("assets/map.png"), fit: BoxFit.fill),
+      ),
+      child: SingleChildScrollView(
         child: Column(
           children: [
             const SizedBox(
               height: 50,
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(20.0),
               child: FormField2(
                 iconData: Icon(
                   Icons.location_on,
