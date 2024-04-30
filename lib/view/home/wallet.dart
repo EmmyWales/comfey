@@ -1,6 +1,9 @@
 import 'package:comfey/data/wallet%20data/recent_transaction.dart';
+import 'package:comfey/widgets/contract_Dialogue/accomodation.dart';
 import 'package:comfey/widgets/contract_Dialogue/dialogue.dart';
 import 'package:comfey/widgets/creditcard_details.dart';
+import 'package:comfey/widgets/custom_button/long_button.dart';
+import 'package:comfey/widgets/textFormField.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -15,22 +18,6 @@ class WalletScreen extends StatefulWidget {
 }
 
 class _WalletScreenState extends State<WalletScreen> {
-  void _showCustomDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return Dialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0),
-          ),
-          elevation: 0.0,
-          backgroundColor: Colors.transparent,
-          child: const ContractDialogue(),
-        );
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -203,7 +190,7 @@ class _WalletScreenState extends State<WalletScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    _showCustomDialog(context);
+                    _showMapModal(context);
                   },
                   child: Container(
                     height: 90,
@@ -324,6 +311,33 @@ class _WalletScreenState extends State<WalletScreen> {
           ),
         ],
       ),
+    );
+  }
+
+  void _showMapModal(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return FractionallySizedBox(
+          heightFactor: 0.4,
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              height: MediaQuery.sizeOf(context).height * 0.4,
+              width: MediaQuery.sizeOf(context).width,
+              decoration: BoxDecoration(
+                color: AppColor.white,
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
+              ),
+              child: AccomodationDialogue(),
+            ),
+          ),
+        );
+      },
     );
   }
 }

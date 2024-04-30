@@ -95,101 +95,105 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 fontWeight: FontWeight.w600,
               ),
               const SizedBox(height: 10),
-              Container(
-                height: 200,
-                width: MediaQuery.sizeOf(context).width,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: AppColor.grey2,
+              Material(
+                elevation: 3,
+                borderRadius: BorderRadius.circular(10),
+                child: Container(
+                  height: 200,
+                  width: MediaQuery.sizeOf(context).width,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
                   ),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(12.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 65,
-                        width: MediaQuery.sizeOf(context).width,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                            color: AppColor.primary,
-                          ),
-                          color: const Color(0XFFFAFAFA),
-                        ),
-                        child: Center(
-                          child: ListTile(
-                            leading: const Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Icon(
-                                  Icons.credit_card,
-                                  size: 28,
-                                ),
-                              ],
+                  child: Padding(
+                    padding: EdgeInsets.all(12.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 65,
+                          width: MediaQuery.sizeOf(context).width,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                              color: AppColor.primary,
                             ),
-                            title: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                BaseText(
-                                  text: "300,000.00",
-                                  fontSize: 14,
-                                  color: AppColor.txtblack,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                                BaseText(
-                                    text: "Wallet",
+                            color: const Color(0XFFFAFAFA),
+                          ),
+                          child: Center(
+                            child: ListTile(
+                              leading: const Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Icon(
+                                    Icons.credit_card,
+                                    size: 28,
+                                  ),
+                                ],
+                              ),
+                              title: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  BaseText(
+                                    text: "300,000.00",
                                     fontSize: 14,
-                                    color: AppColor.txt),
-                              ],
+                                    color: AppColor.txtblack,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                  BaseText(
+                                      text: "Wallet",
+                                      fontSize: 14,
+                                      color: AppColor.txt),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        height: 65,
-                        width: MediaQuery.sizeOf(context).width,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: const Color(0XFFFAFAFA),
+                        const SizedBox(
+                          height: 20,
                         ),
-                        child: Center(
-                          child: ListTile(
-                            leading: const Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Icon(
-                                  Icons.credit_card,
-                                  size: 28,
-                                ),
-                              ],
-                            ),
-                            title: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                BaseText(
-                                  text: "Pay online",
-                                  fontSize: 14,
-                                  color: AppColor.txtblack,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                                BaseText(
-                                    text: "Transfer, Card",
+                        Container(
+                          height: 65,
+                          width: MediaQuery.sizeOf(context).width,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: const Color(0XFFFAFAFA),
+                          ),
+                          child: Center(
+                            child: ListTile(
+                              leading: const Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Icon(
+                                    Icons.credit_card,
+                                    size: 28,
+                                  ),
+                                ],
+                              ),
+                              title: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  BaseText(
+                                    text: "Pay online",
                                     fontSize: 14,
-                                    color: AppColor.txt),
-                              ],
+                                    color: AppColor.txtblack,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                  BaseText(
+                                      text: "Transfer, Card",
+                                      fontSize: 14,
+                                      color: AppColor.txt),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               const BaseText(
                 text: "Payment details",
@@ -198,96 +202,94 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 fontWeight: FontWeight.w600,
               ),
               const SizedBox(height: 10),
-              Container(
-                height: 200,
-                width: MediaQuery.sizeOf(context).width,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: AppColor.grey2,
-                  ),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.all(12.0),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          BaseText(
-                            text: "Subtotal",
-                            fontSize: 16,
-                            color: Color(0XFF483C32),
-                          ),
-                          BaseText(
-                            text: "\$18,900.00",
-                            fontSize: 16,
-                            color: Color(0XFF483C32),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          BaseText(
-                            text: "Discount",
-                            fontSize: 16,
-                            color: Color(0XFF483C32),
-                          ),
-                          BaseText(
-                            text: "\$18,900.00",
-                            fontSize: 16,
-                            color: Color(0XFF483C32),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          BaseText(
-                            text: "Security",
-                            fontSize: 16,
-                            color: Color(0XFF483C32),
-                          ),
-                          BaseText(
-                            text: "\$18,900.00",
-                            fontSize: 16,
-                            color: Color(0XFF483C32),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Divider(),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          BaseText(
-                            text: "Total",
-                            fontSize: 16,
-                            color: Color(0XFF483C32),
-                          ),
-                          BaseText(
-                            text: "\$18,900.00",
-                            fontSize: 16,
-                            color: Color(0XFF483C32),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                    ],
+              Material(
+                elevation: 3,
+                borderRadius: BorderRadius.circular(15),
+                child: Container(
+                  height: 200,
+                  width: MediaQuery.sizeOf(context).width,
+                  child: const Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            BaseText(
+                              text: "Subtotal",
+                              fontSize: 16,
+                              color: Color(0XFF483C32),
+                            ),
+                            BaseText(
+                              text: "\$18,900.00",
+                              fontSize: 16,
+                              color: Color(0XFF483C32),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            BaseText(
+                              text: "Discount",
+                              fontSize: 16,
+                              color: Color(0XFF483C32),
+                            ),
+                            BaseText(
+                              text: "\$18,900.00",
+                              fontSize: 16,
+                              color: Color(0XFF483C32),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            BaseText(
+                              text: "Security",
+                              fontSize: 16,
+                              color: Color(0XFF483C32),
+                            ),
+                            BaseText(
+                              text: "\$18,900.00",
+                              fontSize: 16,
+                              color: Color(0XFF483C32),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Divider(),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            BaseText(
+                              text: "Total",
+                              fontSize: 16,
+                              color: Color(0XFF483C32),
+                            ),
+                            BaseText(
+                              text: "\$18,900.00",
+                              fontSize: 16,
+                              color: Color(0XFF483C32),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

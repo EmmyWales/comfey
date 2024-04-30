@@ -621,101 +621,144 @@ class _HomeScreenState extends State<HomeScreen> {
   void _showMapModal(BuildContext context) {
     showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
       builder: (BuildContext context) {
-        return Container(
-          height: MediaQuery.sizeOf(context).height /0.8,
-          width: MediaQuery.sizeOf(context).width,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/map.png"), fit: BoxFit.fill),
-          ),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 50,
+        return FractionallySizedBox(
+          heightFactor: 0.8,
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              height: MediaQuery.sizeOf(context).height * 1.0,
+              width: MediaQuery.sizeOf(context).width,
+              decoration: BoxDecoration(
+                color: AppColor.white,
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: FormField2(
-                    iconData: Icon(
-                      Icons.location_on,
-                      color: AppColor.primary,
-                    ),
-                    text: "Search here...",
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.sizeOf(context).height / 3.4,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Container(
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                        color: AppColor.primary,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Center(
-                        child: Icon(
-                          Icons.location_searching_rounded,
-                          color: AppColor.white,
+              ),
+              child: SingleChildScrollView(
+                // physics: const ClampingScrollPhysics(),
+                child: Stack(
+                  children: [
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.9,
+                      width: MediaQuery.sizeOf(context).width,
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
                         ),
+                        image: DecorationImage(
+                            image: AssetImage("assets/map.png"),
+                            fit: BoxFit.fill),
                       ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.sizeOf(context).height / 6.5,
-                ),
-                Container(
-                  height: 308,
-                  width: MediaQuery.sizeOf(context).width,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(40),
-                      topRight: Radius.circular(40),
-                    ),
-                    color: AppColor.white,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column(
-                      children: [
-                        FormField2(
-                          text: "Lagos Island",
-                          iconData: Icon(
-                            Icons.location_searching_rounded,
-                            color: AppColor.primary,
+                      child: Column(
+                        children: [
+                          const SizedBox(
+                            height: 10,
                           ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        FormField2(
-                          text: "Where to?",
-                          suffixData: TextButton(
-                            onPressed: () {},
-                            child: BaseText(
-                              text: "Map",
-                              fontSize: 18,
-                              color: AppColor.conblck,
+                          Container(
+                            height: 5,
+                            width: 60,
+                            color: AppColor.grey2,
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: FormField2(
+                              iconData: Icon(
+                                Icons.location_on,
+                                color: AppColor.primary,
+                              ),
+                              text: "Search here...",
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        LongButton(
-                            text: "Enter Destination ", onPressed: () {}),
-                      ],
+                          SizedBox(
+                            height: MediaQuery.sizeOf(context).height / 3.4,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Align(
+                              alignment: Alignment.centerRight,
+                              child: Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                  color: AppColor.primary,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Center(
+                                  child: Icon(
+                                    Icons.location_searching_rounded,
+                                    color: AppColor.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: MediaQuery.sizeOf(context).height / 7,
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
+                    AnimatedPositioned(
+                      duration: Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      child: Container(
+                        height: 320,
+                        width: MediaQuery.sizeOf(context).width,
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(40),
+                            topRight: Radius.circular(40),
+                          ),
+                          color: AppColor.white,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Column(
+                            children: [
+                              FormField2(
+                                text: "Lagos Island",
+                                iconData: Icon(
+                                  Icons.location_searching_rounded,
+                                  color: AppColor.primary,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              FormField2(
+                                text: "Where to?",
+                                suffixData: TextButton(
+                                  onPressed: () {},
+                                  child: BaseText(
+                                    text: "Map",
+                                    fontSize: 18,
+                                    color: AppColor.conblck,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 30,
+                              ),
+                              LongButton(
+                                  text: "Enter Destination ", onPressed: () {}),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         );

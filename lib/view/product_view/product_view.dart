@@ -211,8 +211,8 @@ class _ProductViewState extends State<ProductView> {
                             Column(
                               children: [
                                 Container(
-                                  height: 70,
-                                  width: 220,
+                                  height: 50,
+                                  width: 130,
                                   decoration: BoxDecoration(
                                     border: Border.all(color: AppColor.grey2),
                                     borderRadius:
@@ -254,27 +254,28 @@ class _ProductViewState extends State<ProductView> {
                                               ),
                                             ),
                                           ),
-                                          Container(
-                                            height: 35,
-                                            width: 85,
-                                            decoration: BoxDecoration(
-                                                color: AppColor.choc,
-                                                borderRadius:
-                                                    BorderRadius.circular(20)),
-                                            child: Center(
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  BaseText(
-                                                    text: "2 spaces left",
-                                                    fontSize: 11,
-                                                    color: AppColor.white,
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
+                                          // Container(
+                                          //   height: 35,
+                                          //   width: 85,
+                                          //   decoration: BoxDecoration(
+                                          //       color: AppColor.choc,
+                                          //       borderRadius:
+                                          //           BorderRadius.circular(20)),
+                                          //   child: Center(
+                                          //     child: Row(
+                                          //       mainAxisAlignment:
+                                          //           MainAxisAlignment.center,
+                                          //       children: [
+                                          //         BaseText(
+                                          //           text: "2 spaces left",
+                                          //           fontSize: 11,
+                                          //           color: AppColor.white,
+                                          //         ),
+                                          //       ],
+                                          //     ),
+                                          //   ),
+                                          // ),
+                                       
                                         ],
                                       ),
                                     ),
@@ -489,12 +490,7 @@ class _ProductViewState extends State<ProductView> {
                                   bgColor: AppColor.white,
                                   textColor: AppColor.primary,
                                   onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (_) => const MakePayment(),
-                                      ),
-                                    );
+                                    
                                   }),
                             ),
                           ],

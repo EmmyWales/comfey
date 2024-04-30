@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class ContractDialogue extends StatelessWidget {
+class AccomodationDialogue extends StatelessWidget {
   void _showCustomDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -22,7 +22,7 @@ class ContractDialogue extends StatelessWidget {
     );
   }
 
-  const ContractDialogue({super.key});
+  const AccomodationDialogue({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -160,7 +160,7 @@ class ContractDialogue extends StatelessWidget {
                   child: ListTile(
                     leading: Icon(Icons.calendar_today_outlined),
                     title: BaseText(
-                        text: "Download Contract",
+                        text: "Download document",
                         fontSize: 13,
                         color: AppColor.txt),
                   ),
@@ -183,7 +183,7 @@ class ContractDialogue extends StatelessWidget {
                 child: ListTile(
                   leading: Icon(Icons.calendar_today_outlined),
                   title: BaseText(
-                      text: "Viewed Clearance",
+                      text: "Viewed hostel clearance | Mail",
                       fontSize: 13,
                       color: AppColor.txt),
                 ),
@@ -191,30 +191,6 @@ class ContractDialogue extends StatelessWidget {
             ),
             const SizedBox(
               height: 10,
-            ),
-            GestureDetector(
-              onTap: () {
-                _showCustomDialog(context);
-              },
-              child: Container(
-                height: 55,
-                width: MediaQuery.sizeOf(context).width,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                    color: AppColor.conblck,
-                  ),
-                ),
-                child: Center(
-                  child: ListTile(
-                    leading: Icon(Icons.calendar_today_outlined),
-                    title: BaseText(
-                        text: "Download document",
-                        fontSize: 13,
-                        color: AppColor.txt),
-                  ),
-                ),
-              ),
             ),
           ],
         ),

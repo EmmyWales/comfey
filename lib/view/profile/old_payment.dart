@@ -2,6 +2,8 @@ import 'package:comfey/model/homemodel.dart';
 import 'package:comfey/utils/appcolor.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
 import 'package:comfey/widgets/contract_Dialogue/dialogue.dart';
+import 'package:comfey/widgets/custom_button/long_button.dart';
+import 'package:comfey/widgets/textFormField.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -95,7 +97,7 @@ class _OldPaymentDocumentState extends State<OldPaymentDocument> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                           _showCustomDialogue(context);
+                            _showDialogueModal(context);
                           },
                           child: Container(
                             margin: const EdgeInsets.only(right: 10),
@@ -167,6 +169,22 @@ class _OldPaymentDocumentState extends State<OldPaymentDocument> {
           ],
         ),
       ),
+    );
+  }
+
+  void _showDialogueModal(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return const FractionallySizedBox(
+          heightFactor: 0.45,
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: ContractDialogue(),
+          ),
+        );
+      },
     );
   }
 }
