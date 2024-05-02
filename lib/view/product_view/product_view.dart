@@ -3,6 +3,7 @@ import 'package:comfey/view/payment/checkout.dart';
 import 'package:comfey/view/payment/make_payment.dart';
 import 'package:comfey/view/product_view/product_dialogue.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
+import 'package:comfey/widgets/contract_Dialogue/accomodation.dart';
 import 'package:comfey/widgets/contract_Dialogue/dialogue.dart';
 import 'package:comfey/widgets/custom_button/long_button.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,22 +20,8 @@ class ProductView extends StatefulWidget {
 }
 
 class _ProductViewState extends State<ProductView> {
-  void _showCustomDialogue(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return Dialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0),
-          ),
-          elevation: 0.0,
-          backgroundColor: Colors.transparent,
-          child: const ProductDialogue(),
-        );
-      },
-    );
-  }
-
+  List<String> roomNumbers = List.generate(21, (index) => 'Room ${index + 1}');
+  int i = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -201,7 +188,7 @@ class _ProductViewState extends State<ProductView> {
                                   height: 10,
                                 ),
                                 BaseText(
-                                  text: "Mathew Hostel",
+                                  text: "Silver Ark",
                                   fontSize: 20,
                                   color: AppColor.conblck,
                                   fontWeight: FontWeight.w600,
@@ -225,32 +212,38 @@ class _ProductViewState extends State<ProductView> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Container(
-                                            height: 35,
-                                            width: 110.5,
-                                            decoration: BoxDecoration(
-                                                color: AppColor.choc,
-                                                borderRadius:
-                                                    BorderRadius.circular(20)),
-                                            child: Center(
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  BaseText(
-                                                    text: "Room number",
-                                                    fontSize: 11,
-                                                    color: AppColor.white,
-                                                  ),
-                                                  const SizedBox(
-                                                    width: 2,
-                                                  ),
-                                                  Icon(
-                                                    Icons.favorite,
-                                                    size: 14,
-                                                    color: AppColor.white,
-                                                  )
-                                                ],
+                                          GestureDetector(
+                                            onTap: () {
+                                              _showMapModal(context);
+                                            },
+                                            child: Container(
+                                              height: 35,
+                                              width: 110.5,
+                                              decoration: BoxDecoration(
+                                                  color: AppColor.choc,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          20)),
+                                              child: Center(
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    BaseText(
+                                                      text: "Room number",
+                                                      fontSize: 11,
+                                                      color: AppColor.white,
+                                                    ),
+                                                    const SizedBox(
+                                                      width: 2,
+                                                    ),
+                                                    Icon(
+                                                      Icons.favorite,
+                                                      size: 14,
+                                                      color: AppColor.white,
+                                                    )
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -275,7 +268,6 @@ class _ProductViewState extends State<ProductView> {
                                           //     ),
                                           //   ),
                                           // ),
-                                       
                                         ],
                                       ),
                                     ),
@@ -432,7 +424,7 @@ class _ProductViewState extends State<ProductView> {
                   Container(
                     height: 70,
                     width: MediaQuery.sizeOf(context).width,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage("assets/map2.png"),
                           fit: BoxFit.fill),
@@ -475,7 +467,7 @@ class _ProductViewState extends State<ProductView> {
                                   bgColor: AppColor.white,
                                   textColor: AppColor.primary,
                                   onPressed: () {
-                                    _showCustomDialogue(context);
+                                    // _showCustomDialogue(context);
                                   }),
                             ),
                             const SizedBox(
@@ -489,9 +481,7 @@ class _ProductViewState extends State<ProductView> {
                                   fontSize: 12,
                                   bgColor: AppColor.white,
                                   textColor: AppColor.primary,
-                                  onPressed: () {
-                                    
-                                  }),
+                                  onPressed: () {}),
                             ),
                           ],
                         ),
@@ -504,6 +494,697 @@ class _ProductViewState extends State<ProductView> {
           ),
         ],
       ),
+    );
+  }
+
+  void _showMapModal(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return FractionallySizedBox(
+          heightFactor: 0.8,
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: SingleChildScrollView(
+              child: Container(
+                height: MediaQuery.sizeOf(context).height * 0.8,
+                width: MediaQuery.sizeOf(context).width,
+                decoration: BoxDecoration(
+                  color: AppColor.white,
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
+                ),
+                child: Container(
+                  height: 40,
+                  width: 150,
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  height: 40,
+                                  width: 15,
+                                  decoration: BoxDecoration(
+                                    color: AppColor.primary,
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                const BaseText(
+                                  text: "Hostel Accomodation | Rooms",
+                                  fontSize: 16,
+                                  color: Color(0XFF1A1D1F),
+                                ),
+                              ],
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Container(
+                                height: 35,
+                                width: 35,
+                                decoration: const BoxDecoration(
+                                  color: Color(0XFFEFEFEF),
+                                  shape: BoxShape.circle,
+                                ),
+                                child: const Icon(
+                                  Icons.close_rounded,
+                                  size: 18,
+                                  color: Color(0XFF33383F),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Expanded(
+                          child: GridView.builder(
+                            physics: const ClampingScrollPhysics(),
+                            shrinkWrap: true,
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              childAspectRatio: 2.0,
+                              crossAxisCount: 3,
+                              crossAxisSpacing: 10.0,
+                              mainAxisSpacing: 10.0,
+                            ),
+                            itemCount: roomNumbers.length,
+                            itemBuilder: ((context, index) {
+                              return GestureDetector(
+                                onTap: () {
+                                  _showRoomates(context);
+                                },
+                                child: Container(
+                                  height: 30,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(
+                                      color: AppColor.conblck,
+                                    ),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Center(
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          const Icon(
+                                            Icons.calendar_today_outlined,
+                                            size: 21,
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              BaseText(
+                                                  text: "Room number",
+                                                  fontSize: 11,
+                                                  color: AppColor.txt),
+                                              BaseText(
+                                                text: "Room ${counter(index)}",
+                                                fontSize: 11,
+                                                color: AppColor.txtblack,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }),
+                          ),
+                        ),
+                        BaseText(
+                          text: "Paid Occupant",
+                          fontSize: 18,
+                          color: AppColor.conblck,
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              height: 50,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                color: AppColor.conblck,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Container(
+                              height: 50,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                color: AppColor.conblck,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Container(
+                              height: 50,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                color: AppColor.conblck,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  String counter(int index) {
+    return (index + 1).toString();
+  }
+
+  void _showRoomates(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return FractionallySizedBox(
+          heightFactor: 0.87,
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: SingleChildScrollView(
+              child: Container(
+                height: MediaQuery.sizeOf(context).height * 0.87,
+                width: MediaQuery.sizeOf(context).width,
+                decoration: BoxDecoration(
+                  color: AppColor.white,
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
+                ),
+                child: Container(
+                  height: 40,
+                  width: 150,
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  height: 40,
+                                  width: 15,
+                                  decoration: BoxDecoration(
+                                    color: AppColor.primary,
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                const BaseText(
+                                  text: "Hostel Accomodation | Rooms",
+                                  fontSize: 16,
+                                  color: Color(0XFF1A1D1F),
+                                ),
+                              ],
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Container(
+                                height: 35,
+                                width: 35,
+                                decoration: const BoxDecoration(
+                                  color: Color(0XFFEFEFEF),
+                                  shape: BoxShape.circle,
+                                ),
+                                child: const Icon(
+                                  Icons.close_rounded,
+                                  size: 18,
+                                  color: Color(0XFF33383F),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Material(
+                            elevation: 2,
+                            borderRadius: BorderRadius.circular(10),
+                            child: Container(
+                              height: 60,
+                              width: MediaQuery.sizeOf(context).width,
+                              decoration: BoxDecoration(),
+                              child: Align(
+                                alignment: Alignment.topLeft,
+                                child: Container(
+                                  height: 40,
+                                  child: ListTile(
+                                    leading: const Icon(
+                                      Icons.calendar_today_outlined,
+                                      size: 21,
+                                    ),
+                                    title: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        BaseText(
+                                          text: "Room number",
+                                          fontSize: 13,
+                                          color: AppColor.txtblack,
+                                        ),
+                                        BaseText(
+                                          text: "29 Silver Ark , Block 2",
+                                          fontSize: 13,
+                                          color: AppColor.txtblack,
+                                          fontWeight: FontWeight.w600,
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10.0),
+                          child: BaseText(
+                            text: "Current Occupant",
+                            fontSize: 16,
+                            color: AppColor.conblck,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10.0),
+                          child: Row(
+                            children: [
+                              Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                  color: AppColor.conblck,
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                  color: AppColor.conblck,
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                  color: AppColor.conblck,
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10.0),
+                          child: BaseText(
+                            text: "Connect with other room mates",
+                            fontSize: 14,
+                            color: AppColor.conblck,
+                          ),
+                        ),
+                        ListTile(
+                          leading: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              color: AppColor.conblck,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          title: BaseText(
+                            text: "Becky",
+                            fontSize: 16,
+                            color: AppColor.txtblack,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          trailing: Container(
+                            height: 20,
+                            width: 60,
+                            decoration: BoxDecoration(
+                              color: const Color(0XFF5A3514),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Center(
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.add,
+                                    size: 20,
+                                    color: AppColor.white,
+                                  ),
+                                  BaseText(
+                                    text: "Add",
+                                    fontSize: 11,
+                                    color: AppColor.white,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        ListTile(
+                          leading: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              color: AppColor.conblck,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          title: BaseText(
+                            text: "Greg",
+                            fontSize: 16,
+                            color: AppColor.txtblack,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          trailing: Container(
+                            height: 20,
+                            width: 60,
+                            decoration: BoxDecoration(
+                              color: const Color(0XFF5A3514),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Center(
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.add,
+                                    size: 20,
+                                    color: AppColor.white,
+                                  ),
+                                  BaseText(
+                                    text: "Add",
+                                    fontSize: 11,
+                                    color: AppColor.white,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        ListTile(
+                          leading: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              color: AppColor.conblck,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          title: BaseText(
+                            text: "Alex",
+                            fontSize: 16,
+                            color: AppColor.txtblack,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          trailing: Container(
+                            height: 20,
+                            width: 60,
+                            decoration: BoxDecoration(
+                              color: const Color(0XFF5A3514),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Center(
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.add,
+                                    size: 20,
+                                    color: AppColor.white,
+                                  ),
+                                  BaseText(
+                                    text: "Add",
+                                    fontSize: 11,
+                                    color: AppColor.white,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        ListTile(
+                          leading: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              color: AppColor.conblck,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          title: BaseText(
+                            text: "Arlene",
+                            fontSize: 16,
+                            color: AppColor.txtblack,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          trailing: Container(
+                            height: 20,
+                            width: 60,
+                            decoration: BoxDecoration(
+                              color: const Color(0XFF5A3514),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Center(
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.add,
+                                    size: 20,
+                                    color: AppColor.white,
+                                  ),
+                                  BaseText(
+                                    text: "Add",
+                                    fontSize: 11,
+                                    color: AppColor.white,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        ListTile(
+                          leading: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              color: AppColor.conblck,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          title: BaseText(
+                            text: "Aubery",
+                            fontSize: 16,
+                            color: AppColor.txtblack,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          trailing: Container(
+                            height: 20,
+                            width: 60,
+                            decoration: BoxDecoration(
+                              color: const Color(0XFF5A3514),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Center(
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.add,
+                                    size: 20,
+                                    color: AppColor.white,
+                                  ),
+                                  BaseText(
+                                    text: "Add",
+                                    fontSize: 11,
+                                    color: AppColor.white,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        ListTile(
+                          leading: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              color: AppColor.conblck,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          title: BaseText(
+                            text: "Aubrey",
+                            fontSize: 16,
+                            color: AppColor.txtblack,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          trailing: Container(
+                            height: 20,
+                            width: 60,
+                            decoration: BoxDecoration(
+                              color: const Color(0XFF5A3514),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Center(
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.add,
+                                    size: 20,
+                                    color: AppColor.white,
+                                  ),
+                                  BaseText(
+                                    text: "Add",
+                                    fontSize: 11,
+                                    color: AppColor.white,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        ListTile(
+                          leading: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              color: AppColor.conblck,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          title: BaseText(
+                            text: "Ann",
+                            fontSize: 16,
+                            color: AppColor.txtblack,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          trailing: Container(
+                            height: 20,
+                            width: 60,
+                            decoration: BoxDecoration(
+                              color: const Color(0XFF5A3514),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Center(
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.add,
+                                    size: 20,
+                                    color: AppColor.white,
+                                  ),
+                                  BaseText(
+                                    text: "Add",
+                                    fontSize: 11,
+                                    color: AppColor.white,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
