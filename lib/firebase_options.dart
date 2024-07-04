@@ -46,7 +46,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '862592511721',
     projectId: 'comfey-813c9',
     authDomain: 'comfey-813c9.firebaseapp.com',
-    databaseURL: 'https://comfey-813c9-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://comfey-813c9-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'comfey-813c9.appspot.com',
     measurementId: 'G-31XS8Q6PEL',
   );
@@ -56,7 +57,8 @@ class DefaultFirebaseOptions {
     appId: '1:862592511721:android:90616cd43a7adae1854a78',
     messagingSenderId: '862592511721',
     projectId: 'comfey-813c9',
-    databaseURL: 'https://comfey-813c9-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://comfey-813c9-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'comfey-813c9.appspot.com',
   );
 
@@ -65,7 +67,8 @@ class DefaultFirebaseOptions {
     appId: '1:862592511721:ios:4d2d459bee05da0f854a78',
     messagingSenderId: '862592511721',
     projectId: 'comfey-813c9',
-    databaseURL: 'https://comfey-813c9-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://comfey-813c9-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'comfey-813c9.appspot.com',
     iosBundleId: 'com.example.comfey',
   );
@@ -75,7 +78,8 @@ class DefaultFirebaseOptions {
     appId: '1:862592511721:ios:4d2d459bee05da0f854a78',
     messagingSenderId: '862592511721',
     projectId: 'comfey-813c9',
-    databaseURL: 'https://comfey-813c9-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://comfey-813c9-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'comfey-813c9.appspot.com',
     iosBundleId: 'com.example.comfey',
   );
@@ -86,7 +90,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '862592511721',
     projectId: 'comfey-813c9',
     authDomain: 'comfey-813c9.firebaseapp.com',
-    databaseURL: 'https://comfey-813c9-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://comfey-813c9-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'comfey-813c9.appspot.com',
     measurementId: 'G-86MV7TSWPK',
   );

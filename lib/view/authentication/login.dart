@@ -19,7 +19,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-   final FirebaseAuthServices _auth = FirebaseAuthServices();
+  final FirebaseAuthServices _auth = FirebaseAuthServices();
 
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
@@ -29,12 +29,10 @@ class _LoginPageState extends State<LoginPage> {
   void dispose() {
     // TODO: implement dispose
     _email.dispose();
-   
+
     _password.dispose();
     super.dispose();
   }
-
- 
 
   void _toggleVisibility() {
     setState(() {
@@ -72,8 +70,8 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height: 30,
                   ),
-                   CustomTextFormField(
-                     controller: _email,
+                  CustomTextFormField(
+                    controller: _email,
                     hintText: "Email",
                     keyboardType: TextInputType.emailAddress,
                   ),
@@ -81,9 +79,9 @@ class _LoginPageState extends State<LoginPage> {
                     height: 20,
                   ),
                   CustomTextFormField(
-                     controller: _password,
+                    controller: _password,
                     hintText: "Password",
-                    //keyboardType: TextInputType.visiblePassword,
+                    keyboardType: TextInputType.visiblePassword,
                     suffixIcon: IconButton(
                       onPressed: _toggleVisibility,
                       icon: Icon(
@@ -118,9 +116,9 @@ class _LoginPageState extends State<LoginPage> {
                     height: 10,
                   ),
                   LongButton(
-                      text: "Log in",
-                      onPressed:_signIn,
-                      ),
+                    text: "Log in",
+                    onPressed: _signIn,
+                  ),
                   const SizedBox(
                     height: 50,
                   ),
@@ -197,9 +195,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-
-   void _signIn() async {
-    
+  void _signIn() async {
     String email = _email.text;
     String password = _password.text;
 
