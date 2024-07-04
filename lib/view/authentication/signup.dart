@@ -5,7 +5,6 @@ import 'package:comfey/widgets/home_navigation/home_navigation.dart';
 import 'package:comfey/widgets/logo/logo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../../utils/appcolor.dart';
 import '../../widgets/Text widgets/basetext.dart';
@@ -22,9 +21,9 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   final FirebaseAuthServices _auth = FirebaseAuthServices();
 
-  TextEditingController _email = TextEditingController();
-  TextEditingController _fname = TextEditingController();
-  TextEditingController _password = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _fname = TextEditingController();
+  final TextEditingController _password = TextEditingController();
   bool _obscureText = true;
 
   @override

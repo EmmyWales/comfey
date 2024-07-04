@@ -30,13 +30,13 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
                   ),
                 );
               },
-              child: Icon(Icons.arrow_back_ios_new_sharp)),
+              child: const Icon(Icons.arrow_back_ios_new_sharp)),
         ),
         body: SafeArea(
           child: Column(
             children: [
               Center(
-                child: Container(
+                child: SizedBox(
                   height: 40,
                   width: 220,
                   child: Center(
@@ -70,11 +70,11 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
                   ),
                 ),
               ),
-              Container(
+              SizedBox(
                 height: 48,
                 child: TabBar(
                   labelStyle: GoogleFonts.poppins(
-                      color: Color(0XFF483C32),
+                      color: const Color(0XFF483C32),
                       fontWeight: FontWeight.w400,
                       fontSize: 18),
                   tabs: const [

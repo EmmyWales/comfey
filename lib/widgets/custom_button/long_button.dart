@@ -1,7 +1,6 @@
 import 'package:comfey/utils/appcolor.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class LongButton extends StatelessWidget {
   final String text;
@@ -14,7 +13,7 @@ class LongButton extends StatelessWidget {
   final Color? primary;
   final CircularProgressIndicator? child;
 
-  LongButton({
+  const LongButton({super.key, 
     required this.text,
     this.fontSize,
     this.child,

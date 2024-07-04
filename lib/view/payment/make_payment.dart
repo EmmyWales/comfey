@@ -1,6 +1,4 @@
 import 'package:comfey/utils/appcolor.dart';
-import 'package:comfey/view/home/cart/booking.dart';
-import 'package:comfey/view/home/cart/completed.dart';
 import 'package:comfey/view/payment/checkout.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +29,7 @@ class MakePayment extends StatelessWidget {
                     width: MediaQuery.sizeOf(context).width / 5,
                   ),
                   Center(
-                    child: Container(
+                    child: SizedBox(
                       height: 40,
                       width: 220,
                       child: Center(
@@ -78,7 +76,7 @@ class MakePayment extends StatelessWidget {
                 ),
               ],
             ),
-            Expanded(
+            const Expanded(
               child: TabBarView(
                 children: [
                   CheckoutScreen(),

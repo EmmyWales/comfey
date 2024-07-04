@@ -1,9 +1,7 @@
 import 'package:comfey/utils/appcolor.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
 import 'package:comfey/widgets/contract_Dialogue/sucessful_dialogue.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class AccomodationDialogue extends StatelessWidget {
   void _showCustomDialog(BuildContext context) {
@@ -123,7 +121,7 @@ class AccomodationDialogue extends StatelessWidget {
                             color: AppColor.white),
                         Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.task_alt_rounded,
                               color: Color(0XFF969696),
                               size: 18,
@@ -158,7 +156,7 @@ class AccomodationDialogue extends StatelessWidget {
                 ),
                 child: Center(
                   child: ListTile(
-                    leading: Icon(Icons.calendar_today_outlined),
+                    leading: const Icon(Icons.calendar_today_outlined),
                     title: BaseText(
                         text: "Download document",
                         fontSize: 13,
@@ -181,7 +179,7 @@ class AccomodationDialogue extends StatelessWidget {
               ),
               child: Center(
                 child: ListTile(
-                  leading: Icon(Icons.calendar_today_outlined),
+                  leading: const Icon(Icons.calendar_today_outlined),
                   title: BaseText(
                       text: "Viewed hostel clearance | Mail",
                       fontSize: 13,

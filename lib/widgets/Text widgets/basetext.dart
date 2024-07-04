@@ -1,4 +1,3 @@
-import 'package:comfey/utils/appcolor.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,7 +8,7 @@ class BaseText extends StatelessWidget {
   final Color color;
   final TextAlign? textAlign;
   final bool? underlineText;
-  const BaseText({
+  const BaseText({super.key, 
     required this.text,
     required this.fontSize,
     this.underlineText,

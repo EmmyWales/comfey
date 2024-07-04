@@ -1,10 +1,8 @@
 import 'package:comfey/utils/appcolor.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
 import 'package:comfey/widgets/custom_button/long_button.dart';
-import 'package:comfey/widgets/textFormField.dart';
 import 'package:comfey/widgets/textformfield%20widget/textformfield.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({super.key});
@@ -79,7 +77,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               const BaseText(
                 text: "Promo Code",
                 fontSize: 18,
-                color: const Color(0XFF483C32),
+                color: Color(0XFF483C32),
                 fontWeight: FontWeight.w600,
               ),
               const SizedBox(height: 10),
@@ -91,7 +89,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               const BaseText(
                 text: "Payment Method",
                 fontSize: 18,
-                color: const Color(0XFF483C32),
+                color: Color(0XFF483C32),
                 fontWeight: FontWeight.w600,
               ),
               const SizedBox(height: 10),
@@ -105,7 +103,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.all(12.0),
+                    padding: const EdgeInsets.all(12.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -198,14 +196,14 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               const BaseText(
                 text: "Payment details",
                 fontSize: 18,
-                color: const Color(0XFF483C32),
+                color: Color(0XFF483C32),
                 fontWeight: FontWeight.w600,
               ),
               const SizedBox(height: 10),
               Material(
                 elevation: 3,
                 borderRadius: BorderRadius.circular(15),
-                child: Container(
+                child: SizedBox(
                   height: 200,
                   width: MediaQuery.sizeOf(context).width,
                   child: const Padding(

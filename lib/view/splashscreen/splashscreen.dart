@@ -1,11 +1,8 @@
-import 'dart:async';
 import 'package:comfey/utils/appcolor.dart';
 import 'package:comfey/view/onboarding/onboardinscreen.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
 import 'package:comfey/widgets/custom_button/long_button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

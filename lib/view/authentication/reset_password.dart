@@ -46,7 +46,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                           onTap: () {
                             Navigator.pop(context);
                           },
-                          child: Icon(Icons.arrow_back_ios)),
+                          child: const Icon(Icons.arrow_back_ios)),
                       SizedBox(
                         width: MediaQuery.sizeOf(context).width / 5,
                       ),

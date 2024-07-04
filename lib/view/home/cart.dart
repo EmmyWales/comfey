@@ -2,9 +2,7 @@ import 'package:comfey/utils/appcolor.dart';
 import 'package:comfey/view/home/cart/booking.dart';
 import 'package:comfey/view/home/cart/completed.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CartScreen extends StatefulWidget {
@@ -24,7 +22,7 @@ class _CartScreenState extends State<CartScreen> {
           child: Column(
             children: [
               Center(
-                child: Container(
+                child: SizedBox(
                   height: 40,
                   width: 220,
                   child: Center(
@@ -61,11 +59,11 @@ class _CartScreenState extends State<CartScreen> {
               const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 height: 48,
                 child: TabBar(
                   labelStyle: GoogleFonts.poppins(
-                      color: Color(0XFF483C32),
+                      color: const Color(0XFF483C32),
                       fontWeight: FontWeight.w400,
                       fontSize: 18),
                   tabs: const [

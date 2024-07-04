@@ -1,5 +1,4 @@
 import 'package:comfey/model/homemodel.dart';
-import 'package:comfey/view/product_view/product_view.dart';
 import 'package:flutter/material.dart';
 class Attractions extends StatefulWidget {
   const Attractions({super.key});
@@ -17,7 +16,7 @@ class _AttractionsState extends State<Attractions> {
              Expanded(
                child: ListView.separated(
                  separatorBuilder: (context, index) =>
-                     SizedBox(height: 10),
+                     const SizedBox(height: 10),
                  scrollDirection: Axis.vertical,
                  physics: const ClampingScrollPhysics(),
                  itemCount: touristAttraction.length,

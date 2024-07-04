@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:comfey/model/onboarding_model.dart';
 import 'package:comfey/utils/appcolor.dart';
@@ -6,9 +5,7 @@ import 'package:comfey/view/authentication/login.dart';
 import 'package:comfey/view/authentication/signup.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
 import 'package:comfey/widgets/custom_button/long_button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -50,7 +47,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               AppColor.white,
               AppColor.primary,
             ],
-            stops: [0.58, 0.58],
+            stops: const [0.58, 0.58],
           ),
         ),
         child: Column(
@@ -62,7 +59,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(15.0),
-                  child: Container(
+                  child: SizedBox(
                     height: 280,
                     width: MediaQuery.sizeOf(context).width / 1.1,
                     child: Center(

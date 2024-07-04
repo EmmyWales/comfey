@@ -1,13 +1,11 @@
 import 'package:comfey/utils/appcolor.dart';
 import 'package:comfey/view/home/cart.dart';
-import 'package:comfey/view/home/discovery.dart';
 import 'package:comfey/view/home/home.dart';
 import 'package:comfey/view/home/profile.dart';
 import 'package:comfey/view/home/tourist_discovery/tourist_discovery.dart';
 import 'package:comfey/view/home/wallet.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'dart:ui';
 
 class HomeNavigation extends StatefulWidget {
   const HomeNavigation({super.key});

@@ -1,12 +1,7 @@
 import 'package:comfey/data/wallet%20data/recent_transaction.dart';
 import 'package:comfey/widgets/contract_Dialogue/accomodation.dart';
-import 'package:comfey/widgets/contract_Dialogue/dialogue.dart';
 import 'package:comfey/widgets/creditcard_details.dart';
-import 'package:comfey/widgets/custom_button/long_button.dart';
-import 'package:comfey/widgets/textFormField.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import '../../utils/appcolor.dart';
 import '../../widgets/Text widgets/basetext.dart';
 
@@ -31,7 +26,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   height: 40,
                 ),
                 Center(
-                  child: Container(
+                  child: SizedBox(
                     height: 40,
                     width: 220,
                     child: Center(
@@ -210,7 +205,7 @@ class _WalletScreenState extends State<WalletScreen> {
                     ),
                   ],
                 ),
-                Container(
+                SizedBox(
                   height: MediaQuery.sizeOf(context).height / 2.7,
                   child: ListView.builder(
                     scrollDirection: Axis.vertical,
@@ -291,7 +286,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   topRight: Radius.circular(20),
                 ),
               ),
-              child: AccomodationDialogue(),
+              child: const AccomodationDialogue(),
             ),
           ),
         );

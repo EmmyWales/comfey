@@ -21,7 +21,7 @@ class ProductDialogue extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                 Icon(Icons.calendar_today_outlined, size: 21,),
+                 const Icon(Icons.calendar_today_outlined, size: 21,),
 
                 Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

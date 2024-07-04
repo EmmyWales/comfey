@@ -3,15 +3,10 @@ import 'dart:async';
 import 'package:comfey/model/homemodel.dart';
 import 'package:comfey/utils/appcolor.dart';
 import 'package:comfey/view/home/discovery.dart';
-import 'package:comfey/view/home/map.dart';
-import 'package:comfey/view/product_view/product_view.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
 import 'package:comfey/widgets/custom_button/long_button.dart';
 import 'package:comfey/widgets/textFormField.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -47,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _startTimer() {
-    _timer = Timer.periodic(Duration(seconds: 4), (Timer timer) {
+    _timer = Timer.periodic(const Duration(seconds: 4), (Timer timer) {
       setState(() {
         _currentIndex = (_currentIndex + 1) % _imagePaths.length;
       });
@@ -65,8 +60,8 @@ class _HomeScreenState extends State<HomeScreen> {
         onPressed: () {
          
         },
-        child: Icon(Icons.message_rounded, color: Colors.white,),
         backgroundColor: AppColor.primary,
+        child: const Icon(Icons.message_rounded, color: Colors.white,),
       ),
         body: SingleChildScrollView(
           physics: const ClampingScrollPhysics(),
@@ -179,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Material(
                         elevation: 1,
                         borderRadius: BorderRadius.circular(30),
-                        child: Container(
+                        child: SizedBox(
                           height: 60,
                           width: 250,
                           child: Padding(
@@ -220,11 +215,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(
                       height: 10,
                     ),
-                    Container(
+                    SizedBox(
                       height: 280,
                       child: ListView.separated(
                         separatorBuilder: (context, index) =>
-                            SizedBox(width: 10),
+                            const SizedBox(width: 10),
                         scrollDirection: Axis.horizontal,
                         physics: const ClampingScrollPhysics(),
                         itemCount: touristAttraction.length,
@@ -270,11 +265,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(
                       height: 10,
                     ),
-                    Container(
+                    SizedBox(
                       height: 320,
                       child: ListView.separated(
                         separatorBuilder: (context, index) =>
-                            SizedBox(width: 10),
+                            const SizedBox(width: 10),
                         scrollDirection: Axis.horizontal,
                         physics: const ClampingScrollPhysics(),
                         itemCount: accomodation.length,
@@ -386,7 +381,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 ),
                                               ],
                                             ),
-                                            Divider(),
+                                            const Divider(),
                                             Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment
@@ -396,10 +391,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   text:
                                                       "\$ ${accomodations.price.toString()}",
                                                   fontSize: 14,
-                                                  color: Color(0XFF1F1E1E),
+                                                  color: const Color(0XFF1F1E1E),
                                                   fontWeight: FontWeight.w600,
                                                 ),
-                                                Icon(Icons.bookmark)
+                                                const Icon(Icons.bookmark)
                                               ],
                                             ),
                                           ],
@@ -426,11 +421,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(
                       height: 10,
                     ),
-                    Container(
+                    SizedBox(
                       height: 150,
                       child: ListView.separated(
                           separatorBuilder: (context, index) =>
-                              SizedBox(width: 10),
+                              const SizedBox(width: 10),
                           scrollDirection: Axis.horizontal,
                           physics: const ClampingScrollPhysics(),
                           itemCount: expensiveAccomodation.length,
@@ -565,7 +560,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     text:
                                                         "\$ ${expensiveAccomodations.price.toString()}",
                                                     fontSize: 14,
-                                                    color: Color(0XFF1F1E1E),
+                                                    color: const Color(0XFF1F1E1E),
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                                   SizedBox(
@@ -691,7 +686,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     AnimatedPositioned(
-                      duration: Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 300),
                       curve: Curves.easeInOut,
                       bottom: 0,
                       left: 0,

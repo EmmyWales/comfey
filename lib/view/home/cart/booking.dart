@@ -1,9 +1,7 @@
 import 'package:comfey/utils/appcolor.dart';
 import 'package:comfey/view/payment/make_payment.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../../../model/homemodel.dart';
 
