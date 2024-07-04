@@ -3,6 +3,7 @@ import 'package:comfey/view/discovery/classic.dart';
 import 'package:comfey/view/discovery/premium.dart';
 import 'package:comfey/view/discovery/regular.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
+import 'package:comfey/widgets/home_navigation/home_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,15 +20,28 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
+        appBar: AppBar(
+          leading: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const HomeNavigation(),
+                  ),
+                );
+              },
+              child: const Icon(Icons.arrow_back_ios_new_sharp)),
+        ),
         body: SafeArea(
           child: Column(
             children: [
               Center(
-                child: Container(
+                child: SizedBox(
                   height: 40,
                   width: 220,
                   child: Center(
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
                           height: 35,
@@ -56,11 +70,11 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
                   ),
                 ),
               ),
-              Container(
+              SizedBox(
                 height: 48,
                 child: TabBar(
                   labelStyle: GoogleFonts.poppins(
-                      color: Color(0XFF483C32),
+                      color: const Color(0XFF483C32),
                       fontWeight: FontWeight.w400,
                       fontSize: 18),
                   tabs: const [

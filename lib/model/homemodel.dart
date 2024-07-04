@@ -17,70 +17,108 @@ List<HomeModels> accomodation = [
     imagePaths: "sittingroom",
     name: 'Silver Ark',
     price: 300000,
-    location: "23, Ibikunle Street,Yaba,Lagos",
+    location: "Ile-Ife, Osun",
   ),
   HomeModels(
       imagePaths: 'sittingroom',
       name: 'Silver Ark',
       price: 300000,
-      location: "23, Ibikunle Street,Yaba,Lagos"),
+      location: "Osogbo, Osun"),
   HomeModels(
       imagePaths: 'sittingroom',
       name: "Silver Ark",
       price: 300000,
-      location: "23, Ibikunle Street,Yaba,Lagos"),
+      location: "Ilesa, Osun"),
   HomeModels(
       imagePaths: 'sittingroom',
       name: "Silver Ark",
       price: 300000,
-      location: "23, Ibikunle Street,Yaba,Lagos"),
+      location: "Iwo, Osun"),
   HomeModels(
       imagePaths: 'sittingroom',
       name: "Silver Ark",
       price: 300000,
-      location: "23, Ibikunle Street,Yaba,Lagos"),
+      location: "Ikire Osun"),
   HomeModels(
       imagePaths: 'sittingroom',
       name: "Silver Ark",
       price: 300000,
-      location: "23, Ibikunle Street,Yaba,Lagos")
+      location: "Ede Osun")
 ];
 List<HomeModels> expensiveAccomodation = [
   HomeModels(
     imagePaths: "sittingroom",
-    name: 'Mathew Hostel',
+    name: 'Totab Hotel',
     price: 300000,
-    location: "Ikoyi, Lagos",
+    location: "Ile-Ife, Osun",
   ),
   HomeModels(
     imagePaths: 'sittingroom',
-    name: 'Mathew Hostel',
+    name: 'Totab Hotel',
     price: 300000,
-    location: "Ikoyi, Lagos",
+    location: "Osogbo, Osun",
   ),
   HomeModels(
     imagePaths: 'sittingroom',
-    name: "Mathew Hostel",
+    name: 'Totab Hotel',
     price: 300000,
-    location: "Ikoyi, Lagos",
+    location: "Ede, Osun",
   ),
   HomeModels(
     imagePaths: "sittingroom",
-    name: 'Mathew Hostel',
+    name: 'Totab Hotel',
     price: 300000,
-    location: "Ikoyi, Lagos",
+    location: "Ilesha, Lagos",
   ),
   HomeModels(
     imagePaths: "sittingroom",
-    name: 'Mathew Hostel',
+    name: 'Totab Hotel',
     price: 300000,
-    location: "Ikoyi, Lagos",
+    location: "Ikoyi, Osun",
   ),
   HomeModels(
     imagePaths: "sittingroom",
-    name: 'Mathew Hostel',
+    name: 'Totab Hotel',
     price: 300000,
-    location: "Ikoyi, Lagos",
+    location: "Ikire, Osun",
   ),
-  
+];
+
+List<HomeModels> touristAttraction = [
+  HomeModels(
+    imagePaths: "erin-ijesha",
+    name: ' ',
+    price: 300000,
+    location: "",
+  ),
+  HomeModels(
+    imagePaths: 'Ibodi monkey',
+    name: ' ',
+    price: 300000,
+    location: " ",
+  ),
+  HomeModels(
+    imagePaths: 'moremi',
+    name: " ",
+    price: 300000,
+    location: " ",
+  ),
+  HomeModels(
+    imagePaths: "national museum",
+    name: ' ',
+    price: 300000,
+    location: " ",
+  ),
+  HomeModels(
+    imagePaths: "Oranmiyan",
+    name: ' ',
+    price: 300000,
+    location: " ",
+  ),
+  HomeModels(
+    imagePaths: "osun groove",
+    name: ' ',
+    price: 300000,
+    location: " ",
+  ),
 ];

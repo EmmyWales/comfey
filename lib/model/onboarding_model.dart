@@ -1,4 +1,3 @@
-
 class OnboardingModel {
   String title;
   String imagePath;
@@ -12,15 +11,15 @@ class OnboardingModel {
 
 final onboardAssets = [
   OnboardingModel(
-    title: 'Find and locate the best\nroom to stay',
+    title: 'Discover Top Tourist Attractions',
     description:
-        "Experience luxurious, immersive stays in\nselected havens, combining design, facilities,\nand tranquillity.",
-    imagePath: 'onboard1',
+        "Explore the most fascinating and\nbreathtaking tourist attractions.\nFind hidden gems and popular spots,\nall at your fingertips.",
+    imagePath: 'Ooni palace',
   ),
   OnboardingModel(
-    title: 'Find and connect with your\nroommates ',
+    title: 'Connect with Fellow Travelers',
     description:
-        'Become aware and connect with your\nroommates seamlessly for a\nharmonious living experience.',
-    imagePath: 'onboard2',
+        'Meet and connect with fellow tourists and travelers. Share experiences and make new friends for a more enriching travel experience.',
+    imagePath: 'erin-ijesha',
   ),
 ];

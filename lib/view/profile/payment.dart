@@ -2,7 +2,6 @@ import 'package:comfey/utils/appcolor.dart';
 import 'package:comfey/view/payment/deposit_account.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({super.key});
@@ -59,7 +58,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
               child: Container(
                 height: 70,
                 width: MediaQuery.sizeOf(context).width,
-                color: Color(0XFFF4F2F2),
+                color: const Color(0XFFF4F2F2),
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Row(
@@ -101,7 +100,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
             Container(
               height: 70,
               width: MediaQuery.sizeOf(context).width,
-              color: Color(0XFFF4F2F2),
+              color: const Color(0XFFF4F2F2),
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Row(

@@ -1,10 +1,7 @@
-import 'dart:math';
 
 import 'package:comfey/model/homemodel.dart';
 import 'package:comfey/utils/appcolor.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../widgets/Text widgets/basetext.dart';
@@ -30,7 +27,7 @@ class _RegularScreenState extends State<RegularScreen> {
             TextFormField(
               decoration: InputDecoration(
                   hintText: "Select here...",
-                  prefixIcon: Icon(Icons.search),
+                  prefixIcon: const Icon(Icons.search),
                   hintMaxLines: 1,
                   hintStyle: GoogleFonts.poppins(color: AppColor.subtxt),
                   enabledBorder: OutlineInputBorder(
@@ -175,7 +172,7 @@ class _RegularScreenState extends State<RegularScreen> {
                                     ),
                                   ],
                                 ),
-                                Divider(),
+                                const Divider(),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -184,10 +181,10 @@ class _RegularScreenState extends State<RegularScreen> {
                                       text:
                                           "\$ ${accomodations.price.toString()}",
                                       fontSize: 14,
-                                      color: Color(0XFF1F1E1E),
+                                      color: const Color(0XFF1F1E1E),
                                       fontWeight: FontWeight.w600,
                                     ),
-                                    Icon(Icons.bookmark)
+                                    const Icon(Icons.bookmark)
                                   ],
                                 ),
                               ],

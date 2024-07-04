@@ -75,7 +75,7 @@ class _CompletedState extends State<Completed> {
                                     Row(
                                       
                                       children: [
-                                        Icon(
+                                        const Icon(
                                           Icons.task_alt_rounded,
                                           color: Color(0XFF969696),
                                         ),

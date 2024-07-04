@@ -78,7 +78,7 @@ class _MapScreenState extends State<MapScreen> {
                 child: Column(
                   children: [
                     FormField2(
-                      text: "Lagos Island",
+                      text: "Ile-Ife, Osun",
                       iconData: Icon(
                         Icons.location_searching_rounded,
                         color: AppColor.primary,

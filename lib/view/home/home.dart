@@ -2,15 +2,11 @@ import 'dart:async';
 
 import 'package:comfey/model/homemodel.dart';
 import 'package:comfey/utils/appcolor.dart';
-import 'package:comfey/view/home/map.dart';
-import 'package:comfey/view/product_view/product_view.dart';
+import 'package:comfey/view/home/discovery.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
 import 'package:comfey/widgets/custom_button/long_button.dart';
 import 'package:comfey/widgets/textFormField.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,11 +22,11 @@ class _HomeScreenState extends State<HomeScreen> {
   late Timer _timer;
   int _currentIndex = 0;
   final List<String> _imagePaths = [
-    "assets/window.png",
-    "assets/home2.png",
-    "assets/home3.png",
-    "assets/home4.png",
-    "assets/home5.png",
+    "assets/NikeArt_gallery.png",
+    "assets/erin-ijesha.png",
+    "assets/moremi.png",
+    "assets/obatala.png",
+    "assets/Ooni palace.png",
   ];
   @override
   void initState() {
@@ -46,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _startTimer() {
-    _timer = Timer.periodic(Duration(seconds: 4), (Timer timer) {
+    _timer = Timer.periodic(const Duration(seconds: 4), (Timer timer) {
       setState(() {
         _currentIndex = (_currentIndex + 1) % _imagePaths.length;
       });
@@ -60,6 +56,13 @@ class _HomeScreenState extends State<HomeScreen> {
         return false;
       },
       child: Scaffold(
+         floatingActionButton: FloatingActionButton(
+        onPressed: () {
+         
+        },
+        backgroundColor: AppColor.primary,
+        child: const Icon(Icons.message_rounded, color: Colors.white,),
+      ),
         body: SingleChildScrollView(
           physics: const ClampingScrollPhysics(),
           child: Column(
@@ -125,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               width: 0,
                                             ),
                                             const BaseText(
-                                                text: "Ajah, Lagos",
+                                                text: "Ile-Ife, Osun",
                                                 fontSize: 14,
                                                 color: Colors.black)
                                           ],
@@ -137,68 +140,23 @@ class _HomeScreenState extends State<HomeScreen> {
                                 const SizedBox(
                                   height: 10,
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Column(
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Column(
-                                              children: [
-                                                Container(
-                                                  height: 70,
-                                                  width: 100,
-                                                  decoration:
-                                                      const BoxDecoration(
-                                                          color: Colors.grey,
-                                                          shape:
-                                                              BoxShape.circle),
-                                                ),
-                                              ],
-                                            ),
-                                            Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                BaseText(
-                                                    text: "Hi, Femi",
-                                                    fontSize: 20,
-                                                    fontWeight: FontWeight.w700,
-                                                    color: AppColor.white),
-                                                BaseText(
-                                                    text: "Welcome to Comfey",
-                                                    fontSize: 14,
-                                                    color: AppColor.white),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ],
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Container(
+                                    height: 45,
+                                    width: 45,
+                                    decoration: BoxDecoration(
+                                      color: AppColor.primary,
+                                      shape: BoxShape.circle,
                                     ),
-                                    Column(
-                                      children: [
-                                        Container(
-                                          height: 45,
-                                          width: 45,
-                                          decoration: BoxDecoration(
-                                            color: AppColor.primary,
-                                            shape: BoxShape.circle,
-                                          ),
-                                          child: Center(
-                                            child: Icon(
-                                              Icons.notifications,
-                                              color: AppColor.white,
-                                              size: 30,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
+                                    child: Center(
+                                      child: Icon(
+                                        Icons.notifications,
+                                        color: AppColor.white,
+                                        size: 30,
+                                      ),
                                     ),
-                                  ],
+                                  ),
                                 )
                               ],
                             ),
@@ -216,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Material(
                         elevation: 1,
                         borderRadius: BorderRadius.circular(30),
-                        child: Container(
+                        child: SizedBox(
                           height: 60,
                           width: 250,
                           child: Padding(
@@ -245,6 +203,59 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    BaseText(
+                      text: "Tourists Atttraction",
+                      fontSize: 22,
+                      color: AppColor.txtblack,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    SizedBox(
+                      height: 280,
+                      child: ListView.separated(
+                        separatorBuilder: (context, index) =>
+                            const SizedBox(width: 10),
+                        scrollDirection: Axis.horizontal,
+                        physics: const ClampingScrollPhysics(),
+                        itemCount: touristAttraction.length,
+                        itemBuilder: ((context, index) {
+                          final tourism = touristAttraction[index];
+                          return Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: SizedBox(
+                              height: 280,
+                              width: 260,
+                              child: Material(
+                                elevation: 4,
+                                borderRadius: BorderRadius.circular(15),
+                                child: Container(
+                                  height: 100,
+                                  width: 260,
+                                  decoration: BoxDecoration(
+                                    borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(15),
+                                        topRight: Radius.circular(15)),
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                          "assets/${tourism.imagePaths}.png"),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        }),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     BaseText(
                       text: "Accomodation",
                       fontSize: 22,
@@ -254,11 +265,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(
                       height: 10,
                     ),
-                    Container(
+                    SizedBox(
                       height: 320,
                       child: ListView.separated(
                         separatorBuilder: (context, index) =>
-                            SizedBox(width: 10),
+                            const SizedBox(width: 10),
                         scrollDirection: Axis.horizontal,
                         physics: const ClampingScrollPhysics(),
                         itemCount: accomodation.length,
@@ -269,7 +280,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (_) => const ProductView(),
+                                  builder: (_) => const DiscoveryScreen(),
                                 ),
                               );
                             },
@@ -312,52 +323,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   fontWeight: FontWeight.w600,
                                                   color: AppColor.conblck,
                                                 ),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Container(
-                                                      height: 18,
-                                                      width: 65,
-                                                      decoration: BoxDecoration(
-                                                        color: const Color(
-                                                            0XFFD28E50),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                      ),
-                                                      child: const Center(
-                                                        child: BaseText(
-                                                          text: "Classic",
-                                                          fontSize: 12,
-                                                          color:
-                                                              Color(0XFF5A3514),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    const SizedBox(width: 4),
-                                                    Container(
-                                                      height: 18,
-                                                      width: 65,
-                                                      decoration: BoxDecoration(
-                                                        color: const Color(
-                                                            0XFFD28E50),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                      ),
-                                                      child: const Center(
-                                                        child: BaseText(
-                                                          text: "Available",
-                                                          fontSize: 12,
-                                                          color:
-                                                              Color(0XFF5A3514),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                )
                                               ],
                                             ),
                                             const SizedBox(
@@ -416,7 +381,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 ),
                                               ],
                                             ),
-                                            Divider(),
+                                            const Divider(),
                                             Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment
@@ -426,10 +391,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   text:
                                                       "\$ ${accomodations.price.toString()}",
                                                   fontSize: 14,
-                                                  color: Color(0XFF1F1E1E),
+                                                  color: const Color(0XFF1F1E1E),
                                                   fontWeight: FontWeight.w600,
                                                 ),
-                                                Icon(Icons.bookmark)
+                                                const Icon(Icons.bookmark)
                                               ],
                                             ),
                                           ],
@@ -456,149 +421,164 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(
                       height: 10,
                     ),
-                    Container(
+                    SizedBox(
                       height: 150,
                       child: ListView.separated(
                           separatorBuilder: (context, index) =>
-                              SizedBox(width: 10),
+                              const SizedBox(width: 10),
                           scrollDirection: Axis.horizontal,
                           physics: const ClampingScrollPhysics(),
                           itemCount: expensiveAccomodation.length,
                           itemBuilder: ((context, index) {
                             final expensiveAccomodations =
                                 expensiveAccomodation[index];
-                            return Container(
-                              height: 130,
-                              width: 373,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Material(
-                                elevation: 4,
-                                borderRadius: BorderRadius.circular(20),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(12.0),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        height: 120,
-                                        width: 160,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          image: DecorationImage(
-                                            image: AssetImage(
-                                                "assets/${expensiveAccomodations.imagePaths}.png"),
-                                            fit: BoxFit.fill,
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => const DiscoveryScreen(),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                height: 130,
+                                width: 373,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Material(
+                                  elevation: 4,
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          height: 120,
+                                          width: 160,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                  "assets/${expensiveAccomodations.imagePaths}.png"),
+                                              fit: BoxFit.fill,
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                BaseText(
-                                                  text: expensiveAccomodations
-                                                      .name,
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.w600,
-                                                  color: AppColor.conblck,
-                                                ),
-                                              ],
-                                            ),
-                                            const SizedBox(
-                                              height: 5,
-                                            ),
-                                            Row(
-                                              children: [
-                                                const Icon(
-                                                  Icons.location_on_outlined,
-                                                  size: 16,
-                                                ),
-                                                BaseText(
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  BaseText(
                                                     text: expensiveAccomodations
-                                                        .location,
+                                                        .name,
+                                                    fontSize: 18,
+                                                    fontWeight: FontWeight.w600,
+                                                    color: AppColor.conblck,
+                                                  ),
+                                                ],
+                                              ),
+                                              const SizedBox(
+                                                height: 5,
+                                              ),
+                                              Row(
+                                                children: [
+                                                  const Icon(
+                                                    Icons.location_on_outlined,
+                                                    size: 16,
+                                                  ),
+                                                  BaseText(
+                                                      text:
+                                                          expensiveAccomodations
+                                                              .location,
+                                                      fontSize: 13,
+                                                      color: Colors.black),
+                                                ],
+                                              ),
+                                              const SizedBox(
+                                                height: 10,
+                                              ),
+                                              const Row(
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Icon(
+                                                        Icons.star,
+                                                        color:
+                                                            Color(0XFFFFE500),
+                                                        size: 16,
+                                                      ),
+                                                      Icon(
+                                                        Icons.star,
+                                                        color:
+                                                            Color(0XFFFFE500),
+                                                        size: 16,
+                                                      ),
+                                                      Icon(
+                                                        Icons.star,
+                                                        color:
+                                                            Color(0XFFFFE500),
+                                                        size: 16,
+                                                      ),
+                                                      Icon(
+                                                        Icons.star,
+                                                        color:
+                                                            Color(0XFFFFE500),
+                                                        size: 16,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  SizedBox(
+                                                    width: 10,
+                                                  ),
+                                                  BaseText(
+                                                    text: "4.3 Rating",
                                                     fontSize: 13,
-                                                    color: Colors.black),
-                                              ],
-                                            ),
-                                            const SizedBox(
-                                              height: 10,
-                                            ),
-                                            const Row(
-                                              children: [
-                                                Row(
-                                                  children: [
-                                                    Icon(
-                                                      Icons.star,
-                                                      color: Color(0XFFFFE500),
-                                                      size: 16,
-                                                    ),
-                                                    Icon(
-                                                      Icons.star,
-                                                      color: Color(0XFFFFE500),
-                                                      size: 16,
-                                                    ),
-                                                    Icon(
-                                                      Icons.star,
-                                                      color: Color(0XFFFFE500),
-                                                      size: 16,
-                                                    ),
-                                                    Icon(
-                                                      Icons.star,
-                                                      color: Color(0XFFFFE500),
-                                                      size: 16,
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(
-                                                  width: 10,
-                                                ),
-                                                BaseText(
-                                                  text: "4.3 Rating",
-                                                  fontSize: 13,
-                                                  color: Colors.black,
-                                                ),
-                                              ],
-                                            ),
-                                            const SizedBox(
-                                              height: 10,
-                                            ),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                BaseText(
-                                                  text:
-                                                      "\$ ${expensiveAccomodations.price.toString()}",
-                                                  fontSize: 14,
-                                                  color: Color(0XFF1F1E1E),
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                                SizedBox(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width /
-                                                          5,
-                                                ),
-                                                const Icon(
-                                                  Icons.bookmark,
-                                                )
-                                              ],
-                                            ),
-                                          ],
+                                                    color: Colors.black,
+                                                  ),
+                                                ],
+                                              ),
+                                              const SizedBox(
+                                                height: 10,
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  BaseText(
+                                                    text:
+                                                        "\$ ${expensiveAccomodations.price.toString()}",
+                                                    fontSize: 14,
+                                                    color: const Color(0XFF1F1E1E),
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                                  SizedBox(
+                                                    width: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width /
+                                                        5,
+                                                  ),
+                                                  const Icon(
+                                                    Icons.bookmark,
+                                                  )
+                                                ],
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -706,7 +686,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     AnimatedPositioned(
-                      duration: Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 300),
                       curve: Curves.easeInOut,
                       bottom: 0,
                       left: 0,
@@ -726,7 +706,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Column(
                             children: [
                               FormField2(
-                                text: "Lagos Island",
+                                text: "Ile-Ife, Osun",
                                 iconData: Icon(
                                   Icons.location_searching_rounded,
                                   color: AppColor.primary,

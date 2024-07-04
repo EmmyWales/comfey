@@ -1,11 +1,8 @@
-import 'dart:async';
 import 'package:comfey/utils/appcolor.dart';
 import 'package:comfey/view/onboarding/onboardinscreen.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
 import 'package:comfey/widgets/custom_button/long_button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -41,8 +38,11 @@ class _SplashScreenState extends State<SplashScreen> {
                   shape: BoxShape.circle,
                   border: Border.all(color: AppColor.primary, width: 2.5),
                 ),
-                child: Center(
-                  child: Image.asset("assets/Bed.png"),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Center(
+                    child: Image.asset("assets/tour_icon.png", fit: BoxFit.fill,),
+                  ),
                 ),
               ),
               const SizedBox(
@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 fontWeight: FontWeight.w800,
               ),
               BaseText(
-                text: "A home away from home",
+                text: "Finding the perfect place for Tourism",
                 fontSize: 18,
                 color: AppColor.txtblack,
                 fontWeight: FontWeight.w400,

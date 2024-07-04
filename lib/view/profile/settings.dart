@@ -34,7 +34,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             // const SizedBox(
             //   height: 5,
             // ),
-            Container(
+            SizedBox(
               height: 90,
               width: MediaQuery.sizeOf(context).width,
               child: Center(

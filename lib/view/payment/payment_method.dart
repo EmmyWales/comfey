@@ -59,7 +59,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
               child: Container(
                 height: 70,
                 width: MediaQuery.sizeOf(context).width,
-                color: Color(0XFFF4F2F2),
+                color: const Color(0XFFF4F2F2),
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Row(

@@ -25,7 +25,7 @@ class _ClassicScreenState extends State<ClassicScreen> {
             TextFormField(
               decoration: InputDecoration(
                   hintText: "Select here...",
-                  prefixIcon: Icon(Icons.search),
+                  prefixIcon: const Icon(Icons.search),
                   hintMaxLines: 1,
                   hintStyle: GoogleFonts.poppins(color: AppColor.subtxt),
                   enabledBorder: OutlineInputBorder(
@@ -172,7 +172,7 @@ class _ClassicScreenState extends State<ClassicScreen> {
                                       ),
                                     ],
                                   ),
-                                  Divider(),
+                                  const Divider(),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -181,10 +181,10 @@ class _ClassicScreenState extends State<ClassicScreen> {
                                         text:
                                             "\$ ${accomodations.price.toString()}",
                                         fontSize: 14,
-                                        color: Color(0XFF1F1E1E),
+                                        color: const Color(0XFF1F1E1E),
                                         fontWeight: FontWeight.w600,
                                       ),
-                                      Icon(Icons.bookmark)
+                                      const Icon(Icons.bookmark)
                                     ],
                                   ),
                                 ],

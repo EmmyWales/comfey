@@ -1,5 +1,4 @@
 import 'package:comfey/utils/appcolor.dart';
-import 'package:comfey/widgets/Text%20widgets/basetext.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,7 +11,7 @@ class FormField2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 60,
       width: MediaQuery.sizeOf(context).width,
       child: TextFormField(
@@ -20,7 +19,7 @@ class FormField2 extends StatelessWidget {
             fillColor: Colors.white,
             filled: true,
             hintText: text,
-            prefixIcon: iconData ?? Icon(Icons.search),
+            prefixIcon: iconData ?? const Icon(Icons.search),
             suffix: suffixData,
             hintMaxLines: 1,
             hintStyle: GoogleFonts.poppins(color: AppColor.subtxt),

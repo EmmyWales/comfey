@@ -1,14 +1,7 @@
 import 'package:comfey/utils/appcolor.dart';
-import 'package:comfey/view/payment/checkout.dart';
-import 'package:comfey/view/payment/make_payment.dart';
-import 'package:comfey/view/product_view/product_dialogue.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
-import 'package:comfey/widgets/contract_Dialogue/accomodation.dart';
-import 'package:comfey/widgets/contract_Dialogue/dialogue.dart';
 import 'package:comfey/widgets/custom_button/long_button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ProductView extends StatefulWidget {
   const ProductView({
@@ -173,7 +166,7 @@ class _ProductViewState extends State<ProductView> {
                                   height: 20,
                                   width: 70,
                                   decoration: BoxDecoration(
-                                    color: Color.fromARGB(90, 51, 49, 52),
+                                    color: const Color.fromARGB(90, 51, 49, 52),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: const Center(
@@ -303,7 +296,7 @@ class _ProductViewState extends State<ProductView> {
                         const SizedBox(
                           height: 20,
                         ),
-                        Divider(),
+                        const Divider(),
                         BaseText(
                           text: "Features",
                           fontSize: 18,
@@ -397,7 +390,7 @@ class _ProductViewState extends State<ProductView> {
                         const SizedBox(
                           height: 10,
                         ),
-                        Divider(),
+                        const Divider(),
                         const SizedBox(
                           height: 20,
                         ),
@@ -458,7 +451,7 @@ class _ProductViewState extends State<ProductView> {
                       children: [
                         Row(
                           children: [
-                            Container(
+                            SizedBox(
                               height: 40,
                               width: 95,
                               child: LongButton(
@@ -473,7 +466,7 @@ class _ProductViewState extends State<ProductView> {
                             const SizedBox(
                               width: 10,
                             ),
-                            Container(
+                            SizedBox(
                               height: 40,
                               width: 110,
                               child: LongButton(
@@ -517,7 +510,7 @@ class _ProductViewState extends State<ProductView> {
                     topRight: Radius.circular(20),
                   ),
                 ),
-                child: Container(
+                child: SizedBox(
                   height: 40,
                   width: 150,
                   child: Padding(
@@ -714,7 +707,7 @@ class _ProductViewState extends State<ProductView> {
                     topRight: Radius.circular(20),
                   ),
                 ),
-                child: Container(
+                child: SizedBox(
                   height: 40,
                   width: 150,
                   child: Padding(
@@ -776,10 +769,10 @@ class _ProductViewState extends State<ProductView> {
                             child: Container(
                               height: 60,
                               width: MediaQuery.sizeOf(context).width,
-                              decoration: BoxDecoration(),
+                              decoration: const BoxDecoration(),
                               child: Align(
                                 alignment: Alignment.topLeft,
-                                child: Container(
+                                child: SizedBox(
                                   height: 40,
                                   child: ListTile(
                                     leading: const Icon(

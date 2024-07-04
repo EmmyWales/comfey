@@ -3,9 +3,7 @@ import 'package:comfey/view/profile/old_payment.dart';
 import 'package:comfey/view/profile/payment.dart';
 import 'package:comfey/view/profile/settings.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -47,7 +45,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         child: Column(
                           children: [
                             Container(
@@ -133,7 +131,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               0XFF1A1A1A,
                             ),
                           ),
-                          trailing: Icon(
+                          trailing: const Icon(
                             Icons.arrow_forward_ios_outlined,
                             size: 22,
                           ),
@@ -189,7 +187,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               0XFF1A1A1A,
                             ),
                           ),
-                          trailing: Icon(
+                          trailing: const Icon(
                             Icons.arrow_forward_ios_outlined,
                             size: 22,
                           ),
@@ -226,7 +224,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             0XFF1A1A1A,
                           ),
                         ),
-                        trailing: Icon(
+                        trailing: const Icon(
                           Icons.arrow_forward_ios_outlined,
                           size: 22,
                         ),
@@ -244,7 +242,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             0XFF1A1A1A,
                           ),
                         ),
-                        trailing: Icon(
+                        trailing: const Icon(
                           Icons.arrow_forward_ios_outlined,
                           size: 22,
                         ),
@@ -262,7 +260,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             0XFF1A1A1A,
                           ),
                         ),
-                        trailing: Icon(
+                        trailing: const Icon(
                           Icons.arrow_forward_ios_outlined,
                           size: 22,
                         ),
