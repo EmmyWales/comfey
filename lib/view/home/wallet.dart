@@ -36,6 +36,7 @@ class _WalletScreenState extends State<WalletScreen> {
                     width: 220,
                     child: Center(
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
                             height: 35,
@@ -55,7 +56,7 @@ class _WalletScreenState extends State<WalletScreen> {
                             width: 10,
                           ),
                           BaseText(
-                            text: "Isolington, No 13 Lagos",
+                            text: "Ile-Ife, Osun",
                             fontSize: 13,
                             color: AppColor.conblck,
                           ),
@@ -188,50 +189,7 @@ class _WalletScreenState extends State<WalletScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                GestureDetector(
-                  onTap: () {
-                    _showMapModal(context);
-                  },
-                  child: Container(
-                    height: 90,
-                    width: MediaQuery.sizeOf(context).width,
-                    decoration: BoxDecoration(
-                      color: AppColor.conblck,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              BaseText(
-                                text: "Accommodation contract.",
-                                fontSize: 16,
-                                color: AppColor.white,
-                                fontWeight: FontWeight.w600,
-                              ),
-                              BaseText(
-                                text:
-                                    "Document includes the payment agreement\nbetween from january to May",
-                                fontSize: 11,
-                                color: AppColor.white,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Image.asset("assets/files.png"),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -253,7 +211,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   ],
                 ),
                 Container(
-                  height: MediaQuery.sizeOf(context).height / 4,
+                  height: MediaQuery.sizeOf(context).height / 2.7,
                   child: ListView.builder(
                     scrollDirection: Axis.vertical,
                     padding:

@@ -41,8 +41,11 @@ class _SplashScreenState extends State<SplashScreen> {
                   shape: BoxShape.circle,
                   border: Border.all(color: AppColor.primary, width: 2.5),
                 ),
-                child: Center(
-                  child: Image.asset("assets/Bed.png"),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Center(
+                    child: Image.asset("assets/tour_icon.png", fit: BoxFit.fill,),
+                  ),
                 ),
               ),
               const SizedBox(
@@ -55,7 +58,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 fontWeight: FontWeight.w800,
               ),
               BaseText(
-                text: "A home away from home",
+                text: "Finding the perfect place for Tourism",
                 fontSize: 18,
                 color: AppColor.txtblack,
                 fontWeight: FontWeight.w400,

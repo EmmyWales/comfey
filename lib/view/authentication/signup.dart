@@ -1,8 +1,11 @@
+import 'package:comfey/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:comfey/view/authentication/login.dart';
-import 'package:comfey/view/home/home.dart';
 import 'package:comfey/widgets/custom_button/long_button.dart';
+import 'package:comfey/widgets/home_navigation/home_navigation.dart';
 import 'package:comfey/widgets/logo/logo.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../utils/appcolor.dart';
 import '../../widgets/Text widgets/basetext.dart';
@@ -17,7 +20,21 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final FirebaseAuthServices _auth = FirebaseAuthServices();
+
+  TextEditingController _email = TextEditingController();
+  TextEditingController _fname = TextEditingController();
+  TextEditingController _password = TextEditingController();
   bool _obscureText = true;
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _email.dispose();
+    _fname.dispose();
+    _password.dispose();
+    super.dispose();
+  }
 
   void _toggleVisibility() {
     setState(() {
@@ -55,16 +72,16 @@ class _SignUpPageState extends State<SignUpPage> {
                   const SizedBox(
                     height: 30,
                   ),
-                  const CustomTextFormField(
-                    // controller: _email,
+                  CustomTextFormField(
+                    controller: _fname,
                     hintText: "Fullname",
                     keyboardType: TextInputType.emailAddress,
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  const CustomTextFormField(
-                    // controller: _email,
+                  CustomTextFormField(
+                    controller: _email,
                     hintText: "Email",
                     keyboardType: TextInputType.emailAddress,
                   ),
@@ -72,9 +89,8 @@ class _SignUpPageState extends State<SignUpPage> {
                     height: 20,
                   ),
                   CustomTextFormField(
-                    // controller: _pword,
+                    controller: _password,
                     hintText: "Password",
-                    
                     keyboardType: TextInputType.visiblePassword,
                     suffixIcon: IconButton(
                       onPressed: _toggleVisibility,
@@ -89,14 +105,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                   LongButton(
                       text: "Sign up",
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const HomeScreen(),
-                          ),
-                        );
-                      }),
+                      onPressed: _signUp,
+                      ),
                   const SizedBox(
                     height: 30,
                   ),
@@ -171,5 +181,25 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
       ),
     );
+  }
+
+  void _signUp() async {
+    String fullname = _fname.text;
+    String email = _email.text;
+    String password = _password.text;
+
+    User? user = await _auth.signUpWithEmailAndPassword(email, password);
+
+    if (user != null) {
+      print("User is successfully signedin");
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => const HomeNavigation(),
+        ),
+      );
+    } else {
+      print("Some error occured");
+    }
   }
 }

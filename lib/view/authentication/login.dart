@@ -1,12 +1,14 @@
+import 'package:comfey/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:comfey/utils/appcolor.dart';
 import 'package:comfey/view/authentication/reset_password.dart';
 import 'package:comfey/view/authentication/signup.dart';
-import 'package:comfey/view/authentication/select_university.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
 import 'package:comfey/widgets/custom_button/long_button.dart';
+import 'package:comfey/widgets/home_navigation/home_navigation.dart';
 import 'package:comfey/widgets/logo/logo.dart';
 import 'package:comfey/widgets/logo/social.dart';
 import 'package:comfey/widgets/textformfield%20widget/textformfield.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -17,7 +19,22 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+   final FirebaseAuthServices _auth = FirebaseAuthServices();
+
+  TextEditingController _email = TextEditingController();
+  TextEditingController _password = TextEditingController();
   bool _obscureText = true;
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _email.dispose();
+   
+    _password.dispose();
+    super.dispose();
+  }
+
+ 
 
   void _toggleVisibility() {
     setState(() {
@@ -55,8 +72,8 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height: 30,
                   ),
-                  const CustomTextFormField(
-                    // controller: _email,
+                   CustomTextFormField(
+                     controller: _email,
                     hintText: "Email",
                     keyboardType: TextInputType.emailAddress,
                   ),
@@ -64,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                     height: 20,
                   ),
                   CustomTextFormField(
-                    // controller: _pword,
+                     controller: _password,
                     hintText: "Password",
                     //keyboardType: TextInputType.visiblePassword,
                     suffixIcon: IconButton(
@@ -102,14 +119,8 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   LongButton(
                       text: "Log in",
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const SelectUniversity(),
-                          ),
-                        );
-                      }),
+                      onPressed:_signIn,
+                      ),
                   const SizedBox(
                     height: 50,
                   ),
@@ -184,5 +195,26 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+
+   void _signIn() async {
+    
+    String email = _email.text;
+    String password = _password.text;
+
+    User? user = await _auth.signInWithEmailAndPassword(email, password);
+
+    if (user != null) {
+      print("User is successfully created");
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => const HomeNavigation(),
+        ),
+      );
+    } else {
+      print("Some error occured");
+    }
   }
 }

@@ -63,12 +63,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Container(
+                    height: 280,
+                    width: MediaQuery.sizeOf(context).width / 1.1,
                     child: Center(
                       child: Image.asset(
-                        height: 250,
-                        width: 350,
+                        height: 350,
+                        width: MediaQuery.sizeOf(context).width/1.4,
                         "assets/${onboardAssets[index].imagePath}.png",
-                        fit: BoxFit.fill,
+                      fit: BoxFit.fill,
                       ),
                     ),
                   ),

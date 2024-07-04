@@ -1,23 +1,21 @@
 import 'package:comfey/utils/appcolor.dart';
-import 'package:comfey/view/home/cart/booking.dart';
-import 'package:comfey/view/home/cart/completed.dart';
+import 'package:comfey/view/discovery/classic.dart';
+import 'package:comfey/view/home/tourist_discovery/attractions.dart';
 import 'package:comfey/widgets/Text%20widgets/basetext.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:comfey/widgets/home_navigation/home_navigation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-class CartScreen extends StatefulWidget {
-  const CartScreen({super.key});
+class TouristDiscovery extends StatefulWidget {
+  const TouristDiscovery({super.key});
 
   @override
-  State<CartScreen> createState() => _CartScreenState();
+  State<TouristDiscovery> createState() => _TouristDiscoveryState();
 }
 
-class _CartScreenState extends State<CartScreen> {
+class _TouristDiscoveryState extends State<TouristDiscovery> {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
+    return  DefaultTabController(
       length: 2,
       child: Scaffold(
         body: SafeArea(
@@ -58,9 +56,6 @@ class _CartScreenState extends State<CartScreen> {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
               Container(
                 height: 48,
                 child: TabBar(
@@ -70,19 +65,21 @@ class _CartScreenState extends State<CartScreen> {
                       fontSize: 18),
                   tabs: const [
                     Tab(
-                      text: "Booking",
+                      text: "Places",
                     ),
                     Tab(
-                      text: "Completed",
+                      text: "Accomodations",
                     ),
+                  
                   ],
                 ),
               ),
               const Expanded(
                 child: TabBarView(
                   children: [
-                    BookingCart(),
-                    Completed(),
+                    Attractions(),
+                    ClassicScreen(),
+                    
                   ],
                 ),
               )
@@ -91,5 +88,6 @@ class _CartScreenState extends State<CartScreen> {
         ),
       ),
     );
+ 
   }
 }
