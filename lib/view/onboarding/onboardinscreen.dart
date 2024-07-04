@@ -50,155 +50,158 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             stops: const [0.58, 0.58],
           ),
         ),
-        child: Column(
-          children: [
-            SizedBox(
-              height: MediaQuery.sizeOf(context).height / 5,
-            ),
-            Stack(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: SizedBox(
-                    height: 280,
-                    width: MediaQuery.sizeOf(context).width / 1.1,
-                    child: Center(
-                      child: Image.asset(
-                        height: 350,
-                        width: MediaQuery.sizeOf(context).width/1.4,
-                        "assets/${onboardAssets[index].imagePath}.png",
-                      fit: BoxFit.fill,
-                      ),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top: 0,
-                  bottom: 0,
-                  left: 25,
-                  child: GestureDetector(
-                    onTap: previousPage,
-                    child: Container(
-                      height: 40,
-                      width: 40,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.grey,
-                      ),
-                      child: const Center(
-                        child: Icon(Icons.arrow_back),
-                      ),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top: 0,
-                  bottom: 0,
-                  right: 25,
-                  child: GestureDetector(
-                    onTap: nextIndex,
-                    child: Container(
-                      height: 40,
-                      width: 40,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.grey,
-                      ),
-                      child: const Center(
-                        child: Icon(Icons.arrow_forward),
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Center(
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
+        child: SingleChildScrollView(
+          physics: const ClampingScrollPhysics(),
+          child: Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.sizeOf(context).height / 5,
+              ),
+              Stack(
                 children: [
-                  for (int i = 0; i < onboardAssets.length; i++)
-                    i == index
-                        ? OnboardingScreen(true)
-                        : OnboardingScreen(false)
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: SizedBox(
+                      height: 280,
+                      width: MediaQuery.sizeOf(context).width / 1.1,
+                      child: Center(
+                        child: Image.asset(
+                          height: 350,
+                          width: MediaQuery.sizeOf(context).width/1.4,
+                          "assets/${onboardAssets[index].imagePath}.png",
+                        fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: 0,
+                    bottom: 0,
+                    left: 25,
+                    child: GestureDetector(
+                      onTap: previousPage,
+                      child: Container(
+                        height: 40,
+                        width: 40,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.grey,
+                        ),
+                        child: const Center(
+                          child: Icon(Icons.arrow_back),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: 0,
+                    bottom: 0,
+                    right: 25,
+                    child: GestureDetector(
+                      onTap: nextIndex,
+                      child: Container(
+                        height: 40,
+                        width: 40,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.grey,
+                        ),
+                        child: const Center(
+                          child: Icon(Icons.arrow_forward),
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               ),
-            ),
-            const SizedBox(
-              height: 90,
-            ),
-            BaseText(
-              text: onboardAssets[index].title,
-              fontSize: 24,
-              color: AppColor.white,
-              fontWeight: FontWeight.w600,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            BaseText(
-              text: onboardAssets[index].description,
-              fontSize: 16,
-              color: AppColor.white,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            LongButton(
-              text: index == 0 ? "Continue" : "Get Started",
-              onPressed: () {
-                if (index == 0) {
-                  nextIndex();
-                } else {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => const SignUpPage(),
-                    ),
-                  );
-                }
-              },
-              borderSide: BorderSide(color: AppColor.white),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            if (index == 1)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  BaseText(
-                    text: "Already have an account?",
-                    fontSize: 16,
-                    color: AppColor.white,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(
-                    width: 3,
-                  ),
-                  GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const LoginPage(),
-                          ),
-                        );
-                      },
-                      child: BaseText(
-                        text: "Login",
-                        fontSize: 16,
-                        color: AppColor.white,
-                        textAlign: TextAlign.center,
-                      ))
-                ],
+              const SizedBox(
+                height: 20,
               ),
-          ],
+              Center(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    for (int i = 0; i < onboardAssets.length; i++)
+                      i == index
+                          ? OnboardingScreen(true)
+                          : OnboardingScreen(false)
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 90,
+              ),
+              BaseText(
+                text: onboardAssets[index].title,
+                fontSize: 24,
+                color: AppColor.white,
+                fontWeight: FontWeight.w600,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              BaseText(
+                text: onboardAssets[index].description,
+                fontSize: 16,
+                color: AppColor.white,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              LongButton(
+                text: index == 0 ? "Continue" : "Get Started",
+                onPressed: () {
+                  if (index == 0) {
+                    nextIndex();
+                  } else {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const SignUpPage(),
+                      ),
+                    );
+                  }
+                },
+                borderSide: BorderSide(color: AppColor.white),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              if (index == 1)
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    BaseText(
+                      text: "Already have an account?",
+                      fontSize: 16,
+                      color: AppColor.white,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(
+                      width: 3,
+                    ),
+                    GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const LoginPage(),
+                            ),
+                          );
+                        },
+                        child: BaseText(
+                          text: "Login",
+                          fontSize: 16,
+                          color: AppColor.white,
+                          textAlign: TextAlign.center,
+                        ))
+                  ],
+                ),
+            ],
+          ),
         ),
       ),
     );

@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
 
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
-  bool _obscureText = true;
+  bool _obscureText = false;
 
   @override
   void dispose() {
@@ -45,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Form(
         child: SingleChildScrollView(
-          physics: const NeverScrollableScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           child: Center(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -171,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       TextButton(
                         onPressed: () {
-                          Navigator.push(
+                          Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                               builder: (_) => const SignUpPage(),
@@ -203,7 +203,7 @@ class _LoginPageState extends State<LoginPage> {
 
     if (user != null) {
       print("User is successfully created");
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (_) => const HomeNavigation(),

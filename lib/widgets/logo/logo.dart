@@ -15,15 +15,21 @@ class Logo extends StatelessWidget {
             height: MediaQuery.sizeOf(context).height / 7.5,
           ),
           Container(
-            height: 60,
-            width: 60,
+            height: 80,
+            width: 80,
             decoration: BoxDecoration(
               color: AppColor.white,
               shape: BoxShape.circle,
               border: Border.all(color: AppColor.primary, width: 2.5),
             ),
-            child: Center(
-              child: Image.asset(height: 50, width: 40, "assets/Bed.png"),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: Image.asset(
+                  "assets/tour_icon.png",
+                  fit: BoxFit.fill,
+                ),
+              ),
             ),
           ),
           const SizedBox(

@@ -24,7 +24,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _fname = TextEditingController();
   final TextEditingController _password = TextEditingController();
-  bool _obscureText = true;
+  bool _obscureText = false;
 
   @override
   void dispose() {
@@ -46,7 +46,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       body: Form(
         child: SingleChildScrollView(
-          physics: const NeverScrollableScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           child: Center(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -191,7 +191,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
     if (user != null) {
       print("User is successfully signedin");
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (_) => const HomeNavigation(),
