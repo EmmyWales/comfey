@@ -122,26 +122,28 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height: 50,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 15, left: 15),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          height: 1,
-                          width: 100,
-                          color: AppColor.subtxt,
-                        ),
-                        BaseText(
-                            text: "Or continue with",
-                            fontSize: 16,
-                            color: AppColor.subtxt),
-                        Container(
-                          height: 1,
-                          width: 100,
-                          color: AppColor.subtxt,
-                        ),
-                      ],
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 15, left: 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: 1,
+                            width: 80,
+                            color: AppColor.subtxt,
+                          ),
+                          BaseText(
+                              text: "Or continue with",
+                              fontSize: 16,
+                              color: AppColor.subtxt),
+                          Container(
+                            height: 1,
+                            width: 80,
+                            color: AppColor.subtxt,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   const SizedBox(
