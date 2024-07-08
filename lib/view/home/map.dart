@@ -5,115 +5,106 @@ import 'package:comfey/widgets/mapbox_view.dart';
 import 'package:comfey/widgets/textFormField.dart';
 import 'package:flutter/material.dart';
 
-class MapScreen extends StatefulWidget {
-  const MapScreen({super.key});
+class MapView extends StatefulWidget {
+  const MapView({super.key});
 
   @override
-  State<MapScreen> createState() => _MapScreenState();
+  State<MapView> createState() => _MapViewState();
 }
 
-class _MapScreenState extends State<MapScreen> {
+class _MapViewState extends State<MapView> {
+  MapBoxNavigationViewController? _controller;
+  String? _instruction;
+  bool _isMultipleStop = false;
+  double? _distanceRemaining, _durationRemaining;
+  bool _routeBuilt = false;
+  bool _isNavigating = false;
+  bool _arrived = false;
+  late MapBoxOptions _navigationOption;
+
+  Future<void> initialize() async {
+    if (!mounted) return;
+    _navigationOption = MapBoxNavigation.instance.getDefaultOptions();
+    _navigationOption.initialLatitude = 37.7749;
+    _navigationOption.initialLongitude = -122.4194;
+    _navigationOption.mode = MapBoxNavigationMode.driving;
+    MapBoxNavigation.instance.registerRouteEventListener(_onRouteEvent);
+  }
+
+  @override
+  void initState() {
+    initialize();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller?.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      body: Column(
         children: [
-          Container(
-            height: MediaQuery.sizeOf(context).height / 3,
-            width: MediaQuery.sizeOf(context).width,
-            child: MapboxView(),
-          ),
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 50,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: FormField2(
-                    iconData: Icon(
-                      Icons.location_on,
-                      color: AppColor.primary,
-                    ),
-                    text: "Search here...",
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.sizeOf(context).height / 3.4,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Container(
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                        color: AppColor.primary,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Center(
-                        child: Icon(
-                          Icons.location_searching_rounded,
-                          color: AppColor.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.sizeOf(context).height / 6.5,
-                ),
-                Container(
-                  height: 308,
-                  width: MediaQuery.sizeOf(context).width,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(40),
-                      topRight: Radius.circular(40),
-                    ),
-                    color: AppColor.white,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column(
-                      children: [
-                        FormField2(
-                          text: "Ile-Ife, Osun",
-                          iconData: Icon(
-                            Icons.location_searching_rounded,
-                            color: AppColor.primary,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        FormField2(
-                          text: "Where to?",
-                          suffixData: TextButton(
-                            onPressed: () {},
-                            child: BaseText(
-                              text: "Map",
-                              fontSize: 18,
-                              color: AppColor.conblck,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        LongButton(
-                            text: "Enter Destination ", onPressed: () {}),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 1,
+            child: Container(
+              color: Colors.grey[100],
+              child: MapBoxNavigationView(
+                options: _navigationOption,
+                onRouteEvent: _onRouteEvent,
+                onCreated: (MapBoxNavigationViewController controller) async {
+                  _controller = controller;
+                  controller.initialize();
+                },
+              ),
             ),
           ),
         ],
       ),
     );
+  }
+
+  Future<void> _onRouteEvent(e) async {
+    _distanceRemaining = await MapBoxNavigation.instance.getDistanceRemaining();
+    _durationRemaining = await MapBoxNavigation.instance.getDurationRemaining();
+
+    switch (e.eventType) {
+      case MapBoxEvent.progress_change:
+        var progressEvent = e.data as RouteProgressEvent;
+        _arrived = progressEvent.arrived!;
+        if (progressEvent.currentStepInstruction != null) {
+          _instruction = progressEvent.currentStepInstruction;
+        }
+        break;
+      case MapBoxEvent.route_building:
+      case MapBoxEvent.route_built:
+        _routeBuilt = true;
+        break;
+      case MapBoxEvent.route_build_failed:
+        _routeBuilt = false;
+        break;
+      case MapBoxEvent.navigation_running:
+        _isNavigating = true;
+        break;
+      case MapBoxEvent.on_arrival:
+        _arrived = true;
+        if (!_isMultipleStop) {
+          await Future.delayed(const Duration(seconds: 3));
+          await _controller?.finishNavigation();
+        } else {}
+        break;
+      case MapBoxEvent.navigation_finished:
+      case MapBoxEvent.navigation_cancelled:
+        _routeBuilt = false;
+        _isNavigating = false;
+        break;
+      default:
+        break;
+    }
+    //refresh UI
+    setState(() {});
   }
 }
